@@ -1,3 +1,4 @@
+gg.clearResults()
 local n, startAddress, endAddress = nil, 0, 0
 local function name(lib)
 	if n == lib then
