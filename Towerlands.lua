@@ -189,6 +189,7 @@ end
 
 function Purchase()
 setHexMemory("libil2cpp.so", 0x918C1C, "20 00 80 D2 C0 03 5F D6")
+setHexMemory("libil2cpp.so", 0x918F5C, "20 00 80 D2 C0 03 5F D6")
 gg.toast('✅𝙰𝙲𝚃𝙸𝚅𝙰𝚃𝙴𝙳✅')
 end
 
