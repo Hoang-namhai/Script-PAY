@@ -301,16 +301,15 @@ end
 
 
 function OneHit()
-setHexMemory("libil2cpp.so", 0x13C83A8, "E0 03 27 1E C0 03 5F D6")
-setHexMemory("libil2cpp.so", 0x13C85A8, "E0 03 27 1E C0 03 5F D6")
+setHexMemory("libil2cpp.so", 0x15DCD64, "E0 03 27 1E C0 03 5F D6")
+setHexMemory("libil2cpp.so", 0x15DCF44, "E0 03 27 1E C0 03 5F D6")
 gg.toast('✅𝙰𝙲𝚃𝙸𝚅𝙰𝚃𝙴𝙳✅')
 end
 
 
 function GodMod()
-setHexMemory("libil2cpp.so", 0x13C8A3C, "C0 03 5F D6")
--- setHexMemory("libil2cpp.so", 0x13C8AF8, "E0 03 27 1E C0 03 5F D6")
--- setHexMemory("libil2cpp.so", 0x13C8CF8, "E0 03 27 1E C0 03 5F D6")
+setHexMemory("libil2cpp.so", 0x15DD5B4, "E0 03 27 1E C0 03 5F D6")
+setHexMemory("libil2cpp.so", 0x15DD794, "E0 03 27 1E C0 03 5F D6")
 gg.toast('✅𝙰𝙲𝚃𝙸𝚅𝙰𝚃𝙴𝙳✅')
 end
 
