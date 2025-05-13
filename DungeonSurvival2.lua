@@ -85,7 +85,7 @@ end
 
 
 function CDOff()
-setHexMemory("libMyGame.so", 0x015da990, "FD 7B B8 A9 FD 03 00 91)
+setHexMemory("libMyGame.so", 0x015da990, "FD 7B B8 A9 FD 03 00 91")
 gg.toast('✅𝙰𝙲𝚃𝙸𝚅𝙰𝚃𝙴𝙳✅')
 end
 
