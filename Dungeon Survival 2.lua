@@ -69,9 +69,27 @@ XGCK = -1
 end
 
 function F1()
+local HNH = gg.alert('❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮G𝙰𝙼𝙴: 𝙳𝚄𝙽𝙶𝙴𝙾𝙽 𝚂𝚄𝚁𝚅𝙸𝚅𝙰𝙻 𝟸\n💭V𝙴𝚁𝚂𝙸𝙾𝙽: 2.2.12.1\n➣ No CoolDown 💨\n------------------------------------------------','[✅]','[❌]')
+if HNH == nil then return 
+else
+if HNH == 1 then CDOn() end
+if HNH == 2 then CDOff() end
+end
+::ni::
+end
+
+function CDOn()
 setHexMemory("libMyGame.so", 0x015da990, "00 00 80 D2 C0 03 5F D6")
 gg.toast('✅𝙰𝙲𝚃𝙸𝚅𝙰𝚃𝙴𝙳✅')
 end
+
+
+function CDOff()
+setHexMemory("libMyGame.so", 0x015da990, "FD 7B B8 A9 FD 03 00 91)
+gg.toast('✅𝙰𝙲𝚃𝙸𝚅𝙰𝚃𝙴𝙳✅')
+end
+
+
 
 
 function F2()
