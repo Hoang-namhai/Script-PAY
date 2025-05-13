@@ -56,7 +56,7 @@ end
 -- local isHide = false
 function Main()
 HNHH = gg.choice({
-"➣ Move Speed 💨",
+"➣ No CoolDown 💨",
 "➣ Auto Win 🎊",
 "➣ One Hit 💥",
 "[𝙴𝚇𝙸𝚃]"
@@ -68,27 +68,8 @@ if HNHH==4 then EXITALL() end
 XGCK = -1
 end
 
-
 function F1()
-iTzMeCoder=gg.getRangesList('libMyGame.so')[1].start
-iTzMe=nil  iTzMe={}
-iTzMe[1]={}
-iTzMe[1].address=iTzMeCoder+0x01d511a8+0
-iTzMe[1].value='52800000h'
-iTzMe[1].flags=4
-iTzMe[2]={}
-iTzMe[2].address=iTzMeCoder+0x01d511a8+4
-iTzMe[2].value='72A84400h'
-iTzMe[2].flags=4
-iTzMe[3]={}
-iTzMe[3].address=iTzMeCoder+0x01d511a8+8
-iTzMe[3].value='1E270000h'
-iTzMe[3].flags=4
-iTzMe[4]={}
-iTzMe[4].address=iTzMeCoder+0x01d511a8+12
-iTzMe[4].value='D65F03C0h'
-iTzMe[4].flags=4
-gg.setValues(iTzMe)
+setHexMemory("libMyGame.so", 0x0171bed0, "00 00 80 D2 C0 03 5F D6")
 gg.toast('✅𝙰𝙲𝚃𝙸𝚅𝙰𝚃𝙴𝙳✅')
 end
 
