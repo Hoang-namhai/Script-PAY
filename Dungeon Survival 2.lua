@@ -69,7 +69,7 @@ XGCK = -1
 end
 
 function F1()
-setHexMemory("libMyGame.so", 0x0171bed0, "00 00 80 D2 C0 03 5F D6")
+setHexMemory("libMyGame.so", 0x015da990, "00 00 80 D2 C0 03 5F D6")
 gg.toast('✅𝙰𝙲𝚃𝙸𝚅𝙰𝚃𝙴𝙳✅')
 end
 
@@ -86,14 +86,14 @@ end
 
 
 function OnWin()
-setHexMemory("libMyGame.so", 0x016990c4, "20 00 80 D2 C0 03 5F D6")
+setHexMemory("libMyGame.so", 0x01556b2c, "20 00 80 D2 C0 03 5F D6")
 gg.toast('✅𝙰𝙲𝚃𝙸𝚅𝙰𝚃𝙴𝙳✅')
 end
 
 
 
 function OffWin()
-setHexMemory("libMyGame.so", 0x016990c4, "00 00 80 D2 C0 03 5F D6")
+setHexMemory("libMyGame.so", 0x01556b2c, "00 00 80 D2 C0 03 5F D6")
 gg.toast('✅𝙰𝙲𝚃𝙸𝚅𝙰𝚃𝙴𝙳✅')
 end
 
@@ -116,15 +116,15 @@ function A1()
 iTzMeCoder=gg.getRangesList('libMyGame.so')[1].start
 iTzMe=nil  iTzMe={}
 iTzMe[1]={}
-iTzMe[1].address=iTzMeCoder+0x016d0144+0
+iTzMe[1].address=iTzMeCoder+0x0158dc04+0
 iTzMe[1].value='52800020h'
 iTzMe[1].flags=4
 iTzMe[2]={}
-iTzMe[2].address=iTzMeCoder+0x016d0144+4
+iTzMe[2].address=iTzMeCoder+0x0158dc04+4
 iTzMe[2].value='72A00000h'
 iTzMe[2].flags=4
 iTzMe[3]={}
-iTzMe[3].address=iTzMeCoder+0x016d0144+8
+iTzMe[3].address=iTzMeCoder+0x0158dc04+8
 iTzMe[3].value='D65F03C0h'
 iTzMe[3].flags=4
 gg.setValues(iTzMe)
@@ -137,15 +137,15 @@ function A2()
 iTzMeCoder=gg.getRangesList('libMyGame.so')[1].start
 iTzMe=nil  iTzMe={}
 iTzMe[1]={}
-iTzMe[1].address=iTzMeCoder+0x016d0144+0
+iTzMe[1].address=iTzMeCoder+0x0158dc04+0
 iTzMe[1].value='A9B77BFDh'
 iTzMe[1].flags=4
 iTzMe[2]={}
-iTzMe[2].address=iTzMeCoder+0x016d0144+4
+iTzMe[2].address=iTzMeCoder+0x0158dc04+4
 iTzMe[2].value='910003FDh'
 iTzMe[2].flags=4
 iTzMe[3]={}
-iTzMe[3].address=iTzMeCoder+0x016d0144+8
+iTzMe[3].address=iTzMeCoder+0x0158dc04+8
 iTzMe[3].value='A9025BF5h'
 iTzMe[3].flags=4
 gg.setValues(iTzMe)
