@@ -63,7 +63,6 @@ end
 -- local isHide = false
 function Main()
 HNHH = gg.multiChoice({
-"➣ Speed Game 🎮",
 "➣ Reward Resources✨",
 "➣ One Hit 💥",
 "➣ God Mod ❤",
@@ -71,126 +70,12 @@ HNHH = gg.multiChoice({
 }, nil,"❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮G𝙰𝙼𝙴: 𝚂𝙴𝚁𝙰𝙿𝙷𝙸𝙼 𝚂𝙰𝙶𝙰: 𝙸𝙳𝙻𝙴 𝚁𝙿𝙶\n💭V𝙴𝚁𝚂𝙸𝙾𝙽: 1.8.1 \n------------------------------------------------")
     if HNHH == nil then
     else
-if HNHH[1] == true then SpeedGame() end
-if HNHH[2] == true then Reward() end
-if HNHH[3] == true then OneHit() end
-if HNHH[4] == true then GodMod() end
-if HNHH[5] == true then EXITALL() end
+if HNHH[1] == true then Reward() end
+if HNHH[2] == true then OneHit() end
+if HNHH[3] == true then GodMod() end
+if HNHH[4] == true then EXITALL() end
 end
 XGCK = -1
-end
-
-function SpeedGame()
-local HNH = gg.alert('❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮G𝙰𝙼𝙴: 𝚂𝙴𝚁𝙰𝙿𝙷𝙸𝙼 𝚂𝙰𝙶𝙰\n💭V𝙴𝚁𝚂𝙸𝙾𝙽: 1.8.1\n➣ Speed Game 🎮\n------------------------------------------------','[𝙾𝙽𝚂𝙿𝙴𝙴𝙳]','[𝙾𝙵𝙵𝚂𝙿𝙴𝙴𝙳]')
-if HNH == nil then return 
-else
-if HNH == 1 then OnSP() end
-if HNH == 2 then OffSP() end
-end
-::ni::
-end
-
-
-function OnSP()
-function searchValue(t,hai1,hai2)
-gg.clearResults()
-gg.clearList()
-rt={}
-gg.setRanges(hai1)
-gg.setVisible(false)
-gg.searchNumber(t[1], hai2)
-local r = gg.getResults(9)
-if #r==0 then goto HoangNamHai end
-for it=2,#t do
-for i=1,#r do
-r[i].address=r[i].address+t[it][2]
-end
-local rr=gg.getValues(r)
-tt={}
-for i=1,#rr do
-   if rr[i].value== t[it][1] then
-   ii=#tt+1
-   tt[ii]={}
-   tt[ii].address=rr[i].address-t[it][2]
-   tt[ii].flags=4
-   end
-end
-if #tt==0 then goto HoangNamHai end
-r=gg.getValues(tt)
-if it==#t then rt=r goto HoangNamHai end
-end
-::HoangNamHai::
-return rt
-end
-function searchEdit(hnh1,hnh2,hnh3)
-if #r>0 then
-tt={}
-for i=1,#r do
-ii=#tt+1 tt[ii]={}
-tt[ii].address=r[i].address +hnh1
-tt[ii].flags=hnh2
-tt[ii].value=hnh3
-end
-gg.setValues(tt)
-end end
-r=searchValue({"4392630932057270955",{"4392630932057270955",0*4}},32,32)
-if #r == 0 then else
-searchEdit(-1*4,16, 2)
-gg.toast('✅𝙰𝙲𝚃𝙸𝚅𝙰𝚃𝙴𝙳✅')
-gg.clearResults()
-end
-end
-
-
-
-function OffSP()
-function searchValue(t,hai1,hai2)
-gg.clearResults()
-gg.clearList()
-rt={}
-gg.setRanges(hai1)
-gg.setVisible(false)
-gg.searchNumber(t[1], hai2)
-local r = gg.getResults(9)
-if #r==0 then goto HoangNamHai end
-for it=2,#t do
-for i=1,#r do
-r[i].address=r[i].address+t[it][2]
-end
-local rr=gg.getValues(r)
-tt={}
-for i=1,#rr do
-   if rr[i].value== t[it][1] then
-   ii=#tt+1
-   tt[ii]={}
-   tt[ii].address=rr[i].address-t[it][2]
-   tt[ii].flags=4
-   end
-end
-if #tt==0 then goto HoangNamHai end
-r=gg.getValues(tt)
-if it==#t then rt=r goto HoangNamHai end
-end
-::HoangNamHai::
-return rt
-end
-function searchEdit(hnh1,hnh2,hnh3)
-if #r>0 then
-tt={}
-for i=1,#r do
-ii=#tt+1 tt[ii]={}
-tt[ii].address=r[i].address +hnh1
-tt[ii].flags=hnh2
-tt[ii].value=hnh3
-end
-gg.setValues(tt)
-end end
-r=searchValue({"4392630932057270955",{"4392630932057270955",0*4}},32,32)
-if #r == 0 then else
-searchEdit(-1*4,16, 1)
-gg.toast('✅𝙰𝙲𝚃𝙸𝚅𝙰𝚃𝙴𝙳✅')
-gg.clearResults()
-end
 end
 
 
