@@ -7,6 +7,6 @@
   {
     "user": "Admin",
     "pass": "123",
-    "vip": false
+    "vip":  true
   }
 ]
