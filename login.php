@@ -1,8 +1,8 @@
 <?PHP
 $data = '';
 
-$user = 'user';
-$pass = 'pass';
+$user = 'Admin';
+$pass = '123';
 
 if (!empty($_REQUEST) ) {
     if (!empty($_REQUEST[$user]) && !empty($_REQUEST[$pass])) {
