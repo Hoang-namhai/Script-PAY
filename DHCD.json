@@ -2,11 +2,11 @@
   {
     "user": "ADMIN",
     "pass": "123",
-    "vip": false
+    "vip": true
   },
   {
     "user": "HAIMODVIP",
     "pass": "06092002",
-    "vip": false
+    "vip": ttue
   }
 ]
