@@ -1,0 +1,12 @@
+[
+  {
+    "user": "ADMIN",
+    "pass": "123",
+    "vip": true
+  },
+  {
+    "user": "HAIMODVIP",
+    "pass": "06092002",
+    "vip": false
+  }
+]
