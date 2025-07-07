@@ -1,12 +1,12 @@
 [
   {
-    "user": "1",
-    "pass": "1",
+    "user": "Admin",
+    "pass": "123",
     "vip": true
   },
   {
-    "user": "2",
-    "pass": "2",
+    "user": "TheVinh",
+    "pass": "123",
     "vip": true
   }
 ]
