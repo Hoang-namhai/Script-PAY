@@ -4,7 +4,7 @@
 
 
 local Passwords = {
-"Admin",
+"0609",
 "123"
 
 
@@ -350,7 +350,7 @@ end
 
 function F7()
 gg.copyText("0375574755")
-gg.alert("🔰☛📲Đã Copy SĐT Admin📲☚🔰\n\n🔰Hãy Vào Zalo Dán Vào Ô Tìm Kiếm Để Liên Hệ Với Admin.\n\nXin Cảm Ơn!🇻🇳")
+gg.alert("༒📲Đã Copy SĐT Admin📲༒\n\nHãy Vào Zalo Dán Vào Ô Tìm Kiếm Để Liên Hệ Với Admin.\n\nXin Cảm Ơn!🇻🇳")
 end
 
 
