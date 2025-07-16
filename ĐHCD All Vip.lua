@@ -20,11 +20,15 @@ local Passwords = {
 
 
 }
-local Menu = gg.prompt({"Lᴏᴀᴅ Kᴇʏ: "},nil,{"text"})
+local Menu = gg.prompt({
+"🔑Lᴏᴀᴅ Kᴇʏ: ",
+},nil,{"text"})
+
 if not Menu then return end
 for l , I in pairs(Passwords) do
 if Menu[1] == I then A = true end
 end
+
 if A ~= true then gg.alert("❌ Kᴇʏ Sᴀɪ. Hᴏᴀ̣̆ᴄ Kᴇʏ Đᴀ̃ Qᴜᴀ́ Tʜɪᴇ̂́ᴛ Bɪ̣ Sᴜ̛̉ Dᴜ̣ɴɢ. Vᴜɪ Lᴏ̀ɴɢ LH Aᴅᴍɪɴ Đᴇ̂̉ Cᴀ̂́ᴘ Lᴀ̣ɪ Kᴇʏ ❌") gg.copyText("0375574755")
 gg.alert("༒📲Đã Copy SĐT Admin📲༒\n\nHãy Vào Zalo Dán Vào Ô Tìm Kiếm Liên Hệ Với Admin Để Cấp Key Mới!.\n\nXin Cảm Ơn!🇻🇳") return else gg.alert("🎉Kᴇʏ ᴆᴜ́ɴɢ. Lᴏɢɪɴ Tʜᴀ̀ɴʜ Cᴏ̂ɴɢ🎉") end
 
@@ -38,9 +42,11 @@ gg.setVisible(false)
 KingModVN = os.date ("\
 ۞•──────✧❅✦❅✧──────•۞\
 \
-📆Dᴀᴛᴇ📆 : %Y/%m/%d\
+📆Dᴀᴛᴇ📆 : %d/%m/%Y\
 \
 🕛Tɪᴍᴇ🕛 : %H:%M:%S\
+\
+💢Dᴠɪᴄᴇ Oɴʟɪɴᴇ💢 : 𝟣 ᴛʜɪᴇ̂́ᴛ ʙɪ̣\
 \
 ⏳Lᴀꜱᴛ Uᴘᴅᴀᴛᴇ⏳ : 17/07/2025\
 \
@@ -481,3 +487,5 @@ while true do
   if SMZ==1 then Menu()end
 end
 --❏━━━━━━━━━━━━━━❒
+
+
