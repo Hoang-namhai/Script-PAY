@@ -5,7 +5,8 @@
 
 local Passwords = {
 "0609",
-"TheVinh123"
+"TheVinh123",
+"Phuoc1234"	
 
 
 
