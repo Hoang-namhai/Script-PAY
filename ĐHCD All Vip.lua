@@ -79,6 +79,7 @@ local menu=gg.choice({
 "༒Time End [ Trận ]༒",
 "༒Skill Vip [ Trận ]༒",
 "༒Bí Cảnh [ Trận ]༒",
+"༒Ngự Cá Đầm [ Sảnh ]༒",
 "༒Speed X2 [ Sảnh ]༒",
 "༒[ Hướng Dẫn SD ]༒",
 "༒Zalo ADMIN༒",
@@ -92,7 +93,8 @@ if menu==4 then F4() end
 if menu==5 then F5() end
 if menu==6 then F6() end
 if menu==7 then F7() end
-if menu==8 then os.exit() end
+if menu==8 then F8() end
+if menu==9 then os.exit() end
 --❏━━━━━━━━━━━━━━❒
 end
 SMZ=-1
@@ -115,7 +117,7 @@ clear() X="MonsterCfg" O=0x40 T=4 class()
 X="2~999999" refine()
 check() if E==0 then error() return end
 X=0 edit() clear()
-gg.toast('✅༒OneHit GodMod༒✅')
+gg.toast('✅OneHit✅')
 end
 
 
@@ -129,7 +131,7 @@ clear() X="LevelMonsterMgr" O=0x54 T=4 class()
 X="1~300" refine()
 check() if E==0 then error() return end
 X=800 edit() clear()
-gg.toast('✅༒Time End༒✅')
+gg.toast('✅Time End✅')
 end
 
 
@@ -195,7 +197,7 @@ gg.addListItems(t)
 t = nil
 gg.clearList()
 clear()
-gg.toast('✅༒Skill Vip༒✅')
+gg.toast('✅Skill Vip✅')
 end
 
 
@@ -219,11 +221,42 @@ end
 gg.addListItems(t)
 t = nil
 gg.clearResults()
-gg.toast('✅༒𝙲𝙾𝙼𝙱𝙾༒✅') clear()
+gg.toast('✅𝙲𝙾𝙼𝙱𝙾✅') clear()
 end
 
 
+
+
+
 function F5()
+local input = gg.prompt(
+	{"♥Ytb :: Hải Script🍀\n\nLevel Value♛:"},
+{[1] = "LVL1;   LVL2;   LVL3;   LVL4;       \n 6619252;3014771;6422625:113"})
+if input == nil then gg.toast("🔥Đᴀ̃ Hᴜ̉ʏ🔥") os.exit() end
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber(input[1],gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.processResume()
+gg.refineNumber("1~59", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.processResume()
+revert = gg.getResults(8888)
+local t = gg.getResults(8888)
+for i, v in ipairs(t) do
+	if v.flags == gg.TYPE_DWORD then
+		v.value = "60"
+		v.freeze = true
+	end
+end
+gg.addListItems(t)
+t = nil
+gg.clearResults()
+gg.toast('✅𝙽𝙶𝚄 𝙲𝙰 𝙳𝙰𝙼✅')
+end
+
+
+
+
+
+function F6()
 local HNH2 = gg.alert('❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n--------------------------------------------\n\n➤ 𝙵𝚄𝙽𝙲𝚃𝙸𝙾𝙽 𝙼𝙾𝙳:\n[™𝚂𝙿𝙴𝙴𝙳 𝚇𝟸™]💦\n\n➤ Lưu Ý:\n➤ Chức Năng Bật Trong Trận Hay Sảnh Đều Được.\n➤ Nhớ Là Phải Bật Chức Năng Speed Sau Nhất Nhé.', '[🔰ON🔰]', '[🔰OFF🔰]')
 if HNH2 == nil then return 
 else
@@ -283,7 +316,7 @@ r=searchValue({"4392630932057270955",{"4392630932057270955",0*4}},32,32)
 if #r == 0 then else
 searchEdit(-1*4,16, 2)
 gg.clearResults()
-gg.alert('✅༒𝚂𝙿𝙴𝙴𝙳 𝚇𝟸༒✅')
+gg.alert('✅𝚂𝙿𝙴𝙴𝙳 𝚇𝟸✅')
 end
 end
 
@@ -338,20 +371,20 @@ if #r == 0 then else
 searchEdit(-1*4,16, 1)
 gg.clearList()
 gg.clearResults()
-gg.alert('❌༒𝚂𝙿𝙴𝙴𝙳 𝚇𝟸༒❌')
+gg.alert('❌𝚂𝙿𝙴𝙴𝙳 𝚇𝟸❌')
 end
 end
-
-
-
-function F6()
-gg.alert("1. ༒Damage Vip ༒\n[ Chức Năng Này Tùy Phiên Bản Mà AE Sử Dụng, Bắt Đầu Thì AE Vào 1 Trận Đấu Bất Kỳ Rồi Đợi Đến 5s Xong Thoát Ra Luôn Nhé. Ra Tới Sảnh AE Mới Bật Chức Năng Này... Nếu AE Vào Trận Có One Hit Và Bất Tử Rồi Thì Không Cần Bật Lại Nữa Nhé, Còn Nếu Không Có Thì AE Cứ Vào Trong Trận Rồi Bật Là Được.. Mình Đã Test Qua Mấy Bản Nhưng Có Bản Chỉ Cần Bật 1 Lần Là Sài Mãi, Có Bản Thì Mỗi Trận Bật 1 Lần, Vậy Nên AE Cứ Test Sao Cho Phù Hợp Với Phiên Bản Mà AE Sử Dụng Nhé].\n\n\n2. ༒Time Vip༒\n[Chức Năng Này AE Vào Trận Mới Bật Nhé, AE Đợi Qua 1s Rồi Bật Nha, Chức Năng Này Mỗi Trận Bật 1 Lần].\n\n\n3. ༒Skill Vip༒\n[Chức Năng Này Vào Trận Mới Bật Nhé, Nó Sẽ Buff Skill AE Chạy Vô Hạn, Nôm Na Là Vậy, Nói Chung Cũng Không Cần Thiết Bật Đâu, AE Muốn Thử Thì Cứ Thử Nhé, Chức Năng Này Mỗi Trận Nếu Nó Không Hoạt Động Thì Bật Lại].\n\n\n4. ༒Bí Cảnh༒\n[ Là Chức Năng Giữ Combo Liên Tục Khi AE đánh Bí Cảnh Nhé, Thường Thì AE Mà Không Giết Quái Liên Tục Nó Sẽ Mất Combo Liên Tục Thì Hack Này Sẽ Giữ Combo Cho AE Nhé, AE Giết Được Bao Nhiêu Quái Nó Sẽ + Dồn Combo Bằng Đấy Cho AE, Chức Năng Này Mỗi Trận Bật 1 Lần]>\n\n\n5. ༒Speed X2༒\n[Chức Năng Này Sẽ Tăng Tốc Game Chạy x2, Chức Năng Này Mình Thấy Cũng Không Cần Thiết Lắm, AE Muốn Sài Thì Cứ Bật, Bật Ở Sảnh Nhé, Nên Bật Cuối Cùng].\n\n\n6. [À Ờ Thì AE Còn Chơi Game Gì Thì Có Thể ALO Mình Test Hack Nhé AE, Game Này Mình Còn Có Bản Mod APK Nữa, Không Cần Root Hay Chạy Qua Không Gian Ảo, Nhưng 1 Số Máy Lỗi Tí Kk, Hên Xui, Vậy Nhé AE Cần Hỗ Trợ Hay Muốn Nâng Cấp Gì Cứ Alo Mình. Cảm Ơn AE Đã Ủng Hộ!🔥].")
-end
-
 
 
 
 function F7()
+gg.alert("1. ༒Damage Vip ༒\n[ Chức Năng Này Tùy Phiên Bản Mà AE Sử Dụng, Bắt Đầu Thì AE Vào 1 Trận Đấu Bất Kỳ Rồi Đợi Đến 5s Xong Thoát Ra Luôn Nhé. Ra Tới Sảnh AE Mới Bật Chức Năng Này... Nếu AE Vào Trận Có One Hit Và Bất Tử Rồi Thì Không Cần Bật Lại Nữa Nhé, Còn Nếu Không Có Thì AE Cứ Vào Trong Trận Rồi Bật Là Được.. Mình Đã Test Qua Mấy Bản Nhưng Có Bản Chỉ Cần Bật 1 Lần Là Sài Mãi, Có Bản Thì Mỗi Trận Bật 1 Lần, Vậy Nên AE Cứ Test Sao Cho Phù Hợp Với Phiên Bản Mà AE Sử Dụng Nhé].\n\n\n2. ༒Time Vip༒\n[Chức Năng Này AE Vào Trận Mới Bật Nhé, AE Đợi Qua 1s Rồi Bật Nha, Chức Năng Này Mỗi Trận Bật 1 Lần].\n\n\n3. ༒Skill Vip༒\n[Chức Năng Này Vào Trận Mới Bật Nhé, Nó Sẽ Buff Skill AE Chạy Vô Hạn, Nôm Na Là Vậy, Nói Chung Cũng Không Cần Thiết Bật Đâu, AE Muốn Thử Thì Cứ Thử Nhé, Chức Năng Này Mỗi Trận Nếu Nó Không Hoạt Động Thì Bật Lại].\n\n\n4. ༒Bí Cảnh༒\n[ Là Chức Năng Giữ Combo Liên Tục Khi AE đánh Bí Cảnh Nhé, Thường Thì AE Mà Không Giết Quái Liên Tục Nó Sẽ Mất Combo Liên Tục Thì Hack Này Sẽ Giữ Combo Cho AE Nhé, AE Giết Được Bao Nhiêu Quái Nó Sẽ + Dồn Combo Bằng Đấy Cho AE, Chức Năng Này Mỗi Trận Bật 1 Lần]>\n\n\n5. ༒Ngự Cá Đầm [ Trận ]༒\n[Chức Năng Này Là Hack Level Ngự Cá Đầm Nhé...]\nAE Điền Theo Tương Ứng Với Level Nhé:\n\nLVL1;   LVL2;   LVL3;   LVL4;       \n 6619252;3014771;6422625:113\n\n-> Ví Dụ:\n\n5;   10;   15;   20;       \n 6619252;3014771;6422625:113\n\n-> Xong Ấn Chạy Là Ok Nhé...\n\n\n\n\n6. ༒Speed X2༒\n[Chức Năng Này Sẽ Tăng Tốc Game Chạy x2, Chức Năng Này Mình Thấy Cũng Không Cần Thiết Lắm, AE Muốn Sài Thì Cứ Bật, Bật Ở Sảnh Nhé, Nên Bật Cuối Cùng].\n\n\n7. [À Ờ Thì AE Còn Chơi Game Gì Thì Có Thể ALO Mình Test Hack Nhé AE, Game Này Mình Còn Có Bản Mod APK Nữa, Không Cần Root Hay Chạy Qua Không Gian Ảo, Nhưng 1 Số Máy Lỗi Tí Kk, Hên Xui, Vậy Nhé AE Cần Hỗ Trợ Hay Muốn Nâng Cấp Gì Cứ Alo Mình. Cảm Ơn AE Đã Ủng Hộ!🔥].")
+end
+
+
+
+
+function F8()
 gg.copyText("0375574755")
 gg.alert("༒📲Đã Copy SĐT Admin📲༒\n\nHãy Vào Zalo Dán Vào Ô Tìm Kiếm Để Liên Hệ Với Admin.\n\nXin Cảm Ơn!🇻🇳")
 end
