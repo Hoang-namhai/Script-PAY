@@ -79,7 +79,7 @@ local menu=gg.choice({
 "༒Time End [ Trận ]༒",
 "༒Skill Vip [ Trận ]༒",
 "༒Bí Cảnh [ Trận ]༒",
-"༒Ngự Cá Đầm [ Sảnh ]༒",
+"༒Ngư Ca Đàm [ Sảnh ]༒",
 "༒Speed X2 [ Sảnh ]༒",
 "༒[ Hướng Dẫn SD ]༒",
 "༒Zalo ADMIN༒",
@@ -207,6 +207,38 @@ end
 
 
 function F4()
+local HNH4 = gg.alert('❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n--------------------------------------------\n\n➤ 𝙵𝚄𝙽𝙲𝚃𝙸𝙾𝙽 𝙼𝙾𝙳:\n[༒Bí Cảnh༒]\n\n➤ Lưu Ý:\n➤ Chức Năng Bật Trong Trận Nhé...\n➤ Combo1 Là X1500 Liên Tục...\n➤ Còn Combo2 Là Giữ Liên Trảm Combo Liên Tục Nhé ', '[🔰Combo1🔰]', '[🔰Combo2🔰]')
+if HNH4 == nil then return 
+else
+if HNH4 == 1 then ONBC1() end
+if HNH4 == 2 then ONBC2() end
+end
+::ni::
+end
+
+
+
+function ONBC1()
+clear() X="BaizhanSecretScoreDataMgr" O=0x38 T=4 class()
+check() if E==0 then error() return end
+gg.getResults(99999)
+revert = gg.getResults(8888)
+local t = gg.getResults(8888)
+for i, v in ipairs(t) do
+	if v.flags == gg.TYPE_DWORD then
+		v.value = "1500"
+		v.freeze = true
+	end
+end
+gg.addListItems(t)
+t = nil
+gg.clearResults()
+gg.toast('✅𝙲𝙾𝙼𝙱𝙾1✅') clear()
+end
+
+
+
+function ONBC2()
 clear() X="BaizhanSecretScoreDataMgr" O=0x4C T=4 class()
 check() if E==0 then error() return end
 gg.getResults(99999)
@@ -221,7 +253,7 @@ end
 gg.addListItems(t)
 t = nil
 gg.clearResults()
-gg.toast('✅𝙲𝙾𝙼𝙱𝙾✅') clear()
+gg.toast('✅𝙲𝙾𝙼𝙱𝙾2✅') clear()
 end
 
 
@@ -378,7 +410,7 @@ end
 
 
 function F7()
-gg.alert("1. ༒Damage Vip ༒\n[ Chức Năng Này Tùy Phiên Bản Mà AE Sử Dụng, Bắt Đầu Thì AE Vào 1 Trận Đấu Bất Kỳ Rồi Đợi Đến 5s Xong Thoát Ra Luôn Nhé. Ra Tới Sảnh AE Mới Bật Chức Năng Này... Nếu AE Vào Trận Có One Hit Và Bất Tử Rồi Thì Không Cần Bật Lại Nữa Nhé, Còn Nếu Không Có Thì AE Cứ Vào Trong Trận Rồi Bật Là Được.. Mình Đã Test Qua Mấy Bản Nhưng Có Bản Chỉ Cần Bật 1 Lần Là Sài Mãi, Có Bản Thì Mỗi Trận Bật 1 Lần, Vậy Nên AE Cứ Test Sao Cho Phù Hợp Với Phiên Bản Mà AE Sử Dụng Nhé].\n\n\n2. ༒Time Vip༒\n[Chức Năng Này AE Vào Trận Mới Bật Nhé, AE Đợi Qua 1s Rồi Bật Nha, Chức Năng Này Mỗi Trận Bật 1 Lần].\n\n\n3. ༒Skill Vip༒\n[Chức Năng Này Vào Trận Mới Bật Nhé, Nó Sẽ Buff Skill AE Chạy Vô Hạn, Nôm Na Là Vậy, Nói Chung Cũng Không Cần Thiết Bật Đâu, AE Muốn Thử Thì Cứ Thử Nhé, Chức Năng Này Mỗi Trận Nếu Nó Không Hoạt Động Thì Bật Lại].\n\n\n4. ༒Bí Cảnh༒\n[ Là Chức Năng Giữ Combo Liên Tục Khi AE đánh Bí Cảnh Nhé, Thường Thì AE Mà Không Giết Quái Liên Tục Nó Sẽ Mất Combo Liên Tục Thì Hack Này Sẽ Giữ Combo Cho AE Nhé, AE Giết Được Bao Nhiêu Quái Nó Sẽ + Dồn Combo Bằng Đấy Cho AE, Chức Năng Này Mỗi Trận Bật 1 Lần]>\n\n\n5. ༒Ngự Cá Đầm [ Trận ]༒\n[Chức Năng Này Là Hack Level Ngự Cá Đầm Nhé...]\nAE Điền Theo Tương Ứng Với Level Nhé:\n\nLVL1;   LVL2;   LVL3;   LVL4;       \n 6619252;3014771;6422625:113\n\n-> Ví Dụ:\n\n5;   10;   15;   20;       \n 6619252;3014771;6422625:113\n\n-> Xong Ấn Chạy Là Ok Nhé...\n\n\n\n\n6. ༒Speed X2༒\n[Chức Năng Này Sẽ Tăng Tốc Game Chạy x2, Chức Năng Này Mình Thấy Cũng Không Cần Thiết Lắm, AE Muốn Sài Thì Cứ Bật, Bật Ở Sảnh Nhé, Nên Bật Cuối Cùng].\n\n\n7. [À Ờ Thì AE Còn Chơi Game Gì Thì Có Thể ALO Mình Test Hack Nhé AE, Game Này Mình Còn Có Bản Mod APK Nữa, Không Cần Root Hay Chạy Qua Không Gian Ảo, Nhưng 1 Số Máy Lỗi Tí Kk, Hên Xui, Vậy Nhé AE Cần Hỗ Trợ Hay Muốn Nâng Cấp Gì Cứ Alo Mình. Cảm Ơn AE Đã Ủng Hộ!🔥].")
+gg.alert("1. ༒Damage Vip ༒\n[ Chức Năng Này Tùy Phiên Bản Mà AE Sử Dụng, Bắt Đầu Thì AE Vào 1 Trận Đấu Bất Kỳ Rồi Đợi Đến 5s Xong Thoát Ra Luôn Nhé. Ra Tới Sảnh AE Mới Bật Chức Năng Này... Nếu AE Vào Trận Có One Hit Và Bất Tử Rồi Thì Không Cần Bật Lại Nữa Nhé, Còn Nếu Không Có Thì AE Cứ Vào Trong Trận Rồi Bật Là Được.. Mình Đã Test Qua Mấy Bản Nhưng Có Bản Chỉ Cần Bật 1 Lần Là Sài Mãi, Có Bản Thì Mỗi Trận Bật 1 Lần, Vậy Nên AE Cứ Test Sao Cho Phù Hợp Với Phiên Bản Mà AE Sử Dụng Nhé].\n\n\n2. ༒Time Vip༒\n[Chức Năng Này AE Vào Trận Mới Bật Nhé, AE Đợi Qua 1s Rồi Bật Nha, Chức Năng Này Mỗi Trận Bật 1 Lần].\n\n\n3. ༒Skill Vip༒\n[Chức Năng Này Vào Trận Mới Bật Nhé, Nó Sẽ Buff Skill AE Chạy Vô Hạn, Nôm Na Là Vậy, Nói Chung Cũng Không Cần Thiết Bật Đâu, AE Muốn Thử Thì Cứ Thử Nhé, Chức Năng Này Mỗi Trận Nếu Nó Không Hoạt Động Thì Bật Lại].\n\n\n4. ༒Bí Cảnh༒\n[ Là Chức Năng Giữ Combo Liên Tục Khi AE đánh Bí Cảnh Nhé, Thường Thì AE Mà Không Giết Quái Liên Tục Nó Sẽ Mất Combo Liên Tục Thì Hack Này Sẽ Giữ Combo Cho AE Nhé, AE Giết Được Bao Nhiêu Quái Nó Sẽ + Dồn Combo Bằng Đấy Cho AE.\n Chức Năng Này Mỗi Trận Bật 1 Lần]>\n\n\n5. ༒Ngư Ca Đàm༒\n[Chức Năng Này Là Hack Level Ngư Ca Đàm Nhé...]\nYêu Cầu Level 5 Trở Lên Để Kích Hoạt Được Full Nhé\nAE Điền Theo Tương Ứng Với Level Nhé:\n\nLVL1;   LVL2;   LVL3;   LVL4;       \n 6619252;3014771;6422625:113\n\n-> Ví Dụ:\n\n5;   10;   15;   20;       \n 6619252;3014771;6422625:113\n\n-> Xong Ấn Chạy Là Ok Nhé...\n\n\n\n\n6. ༒Speed X2༒\n[Chức Năng Này Sẽ Tăng Tốc Game Chạy x2, Chức Năng Này Mình Thấy Cũng Không Cần Thiết Lắm, AE Muốn Sài Thì Cứ Bật, Bật Ở Sảnh Nhé, Nên Bật Cuối Cùng].\n\n\n7. [À Ờ Thì AE Còn Chơi Game Gì Thì Có Thể ALO Mình Test Hack Nhé AE, Game Này Mình Còn Có Bản Mod APK Nữa, Không Cần Root Hay Chạy Qua Không Gian Ảo, Nhưng 1 Số Máy Lỗi Tí Kk, Hên Xui, Vậy Nhé AE Cần Hỗ Trợ Hay Muốn Nâng Cấp Gì Cứ Alo Mình. Cảm Ơn AE Đã Ủng Hộ!🔥].")
 end
 
 
