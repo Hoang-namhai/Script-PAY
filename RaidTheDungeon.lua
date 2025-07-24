@@ -156,8 +156,8 @@ function F1()
         freezeType = gg.FREEZE_NORMAL
       })
     end
-  end
-
+  end   
+  gg.setValues(edits)
   
   clear()
   X = "HeroSkillDB"
