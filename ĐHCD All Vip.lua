@@ -298,7 +298,7 @@ end
 
 
 
-function ONBGT()
+function ONGT1()
 clear() X="JiaZuLianSaiScoreDataMgr" O=0x38 T=4 class()
 check() if E==0 then error() return end
 gg.getResults(99999)
@@ -318,7 +318,7 @@ end
 
 
 
-function ONBGT()
+function ONGT2()
 clear() X="JiaZuLianSaiScoreDataMgr" O=0x4C T=4 class()
 check() if E==0 then error() return end
 gg.getResults(99999)
