@@ -2,11 +2,11 @@
   {
     "user": "1",
     "pass": "1",
-    "vip": true
+    "vip": false
   },
   {
     "user": "Admin",
     "pass": "123",
-    "vip": true
+    "vip": false
   }
 ]
