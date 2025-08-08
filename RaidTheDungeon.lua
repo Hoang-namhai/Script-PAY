@@ -1,5 +1,5 @@
 local targetInfo = gg.getTargetInfo()
-local requiredVersion = "1.78.1"
+local requiredVersion = "1.79.1"
 if not targetInfo or not targetInfo.versionName then
   os.exit()
 end
