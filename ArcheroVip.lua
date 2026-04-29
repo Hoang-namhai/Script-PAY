@@ -16,12 +16,12 @@ local L = "libil2cpp.so"
 
 function Main()
     local m = gg.choice({
-        H1.." 𝙵𝚁𝙴𝙴 𝙰𝙳𝚂 🚫",
-        H2.." 𝚂𝙿𝙴𝙴𝙳 𝙱𝙰𝚃𝚃𝙻𝙴 💨", 
-        H3.." 𝙱𝚄𝙵𝙵 𝙴𝚇𝙿 𝙻𝙴𝚅𝙴𝙻 🗯️",
-        H4.." 𝙾𝙽𝙴𝙷𝙸𝚃 𝙶𝙾𝙳𝙼𝙾𝙳 💥",
-        "[𝙴𝚇𝙸𝚃]"
-  }, nil,"❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮G𝙰𝙼𝙴: 𝙰𝚁𝙲𝙷𝙴𝚁𝙾 𝚅𝙸𝙿\n💭V𝙴𝚁𝚂𝙸𝙾𝙽: 𝟽.𝟿.𝟷 \n------------------------------------------------")
+        H1.." Free Ads 🚫",
+        H2.." Speed Battle 💨", 
+        H3.." Buff Exp Level 🗯️",
+        H4.." OneHit God Mod 💥",
+        "[EXIT]"
+  }, nil,"❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮Gᴀᴍᴇ: Archero Vip\n💭Vᴇʀꜱɪᴏɴ: 7.9.1 \n------------------------------------------------")
     
     if m == 1 then H1=(H1==on) and off or on; OnOff1()
     elseif m == 2 then H2=(H2==on) and off or on; OnOff2()
@@ -50,7 +50,7 @@ function OnOff1()
             applyEdit(r, 0x5AD2D04, gg.TYPE_DWORD, -763363296)
             applyEdit(r, 0x5AD2D08, gg.TYPE_DWORD, -698416192)
             
-            gg.toast('✅𝙵𝚁𝙴𝙴 𝙰𝙳𝚂✅')
+            gg.toast('✅Free Ads✅')
             gg.clearResults()
             gg.clearList()
         else
@@ -72,7 +72,7 @@ function OnOff1()
             applyEdit(r, 0x5AD2D04, gg.TYPE_DWORD, -132247554)
             applyEdit(r, 0x5AD2D08, gg.TYPE_DWORD, -1459531788)
             
-            gg.toast('❌𝙵𝚁𝙴𝙴 𝙰𝙳𝚂❌')
+            gg.toast('❌Free Ads❌')
             gg.clearResults()
             gg.clearList()
         else
@@ -96,7 +96,7 @@ function OnOff2()
             applyEdit(r, 0x58C8A4C, gg.TYPE_DWORD, 505872384)
             applyEdit(r, 0x58C8A50, gg.TYPE_DWORD, -698416192)
             
-            gg.toast('✅𝚂𝙿𝙴𝙴𝙳✅')
+            gg.toast('✅ Speed ✅')
             gg.clearResults()
             gg.clearList()
         else
@@ -117,7 +117,7 @@ function OnOff2()
             applyEdit(r, 0x58C8A4C, gg.TYPE_DWORD, -1459466252)
             applyEdit(r, 0x58C8A50, gg.TYPE_DWORD, -1342060941)
 
-            gg.toast('❌𝚂𝙿𝙴𝙴𝙳❌')
+            gg.toast('❌ Speed ❌')
             gg.clearResults()
             gg.clearList()
         else
@@ -141,7 +141,7 @@ function OnOff3()
             applyEdit(r, 0x4F68E44, gg.TYPE_DWORD, 505872384)
             applyEdit(r, 0x4F68E48, gg.TYPE_DWORD, -698416192)
 
-            gg.toast('✅𝙱𝚄𝙵𝙵 𝙴𝚇𝙿✅')
+            gg.toast('✅Buff Exp✅')
             gg.clearResults()
             gg.clearList()
         else
@@ -162,7 +162,7 @@ function OnOff3()
             applyEdit(r, 0x4F68E44, gg.TYPE_DWORD, -1459529738)
             applyEdit(r, 0x4F68E48, gg.TYPE_DWORD, -1459466252)
             
-            gg.toast('❌𝙱𝚄𝙵𝙵 𝙴𝚇𝙿❌')
+            gg.toast('❌Buff Exp❌')
             gg.clearResults()
             gg.clearList()
         else
@@ -181,15 +181,15 @@ function OnOff4()
         }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
 
         if #r > 0 then
-            applyEdit(r, 0x5904e60, gg.TYPE_DWORD, 1386217440)
-            applyEdit(r, 0x5904E64, gg.TYPE_DWORD, 1924136928)
+            applyEdit(r, 0x5904e60, gg.TYPE_DWORD, 310820864)
+            applyEdit(r, 0x5904E64, gg.TYPE_DWORD, 1923576640)
             applyEdit(r, 0x5904E68, gg.TYPE_DWORD, -698416192)
             
-            applyEdit(r, 0x5905134, gg.TYPE_DWORD, 1386217440)
-            applyEdit(r, 0x5905138, gg.TYPE_DWORD, 1924136928)
+            applyEdit(r, 0x5905134, gg.TYPE_DWORD, 310820864)
+            applyEdit(r, 0x5905138, gg.TYPE_DWORD, 1923576640)
             applyEdit(r, 0x590513C, gg.TYPE_DWORD, -698416192)
             
-            gg.toast('✅𝙷𝙰𝙲𝙺 𝙾𝙽✅')
+            gg.toast('✅Hack On✅')
             gg.clearResults()
             gg.clearList()
         else
@@ -201,7 +201,7 @@ function OnOff4()
 
         local r = searchValue({
             "1179403647",
-            {1386217440, 0x5904e60}
+            {310820864, 0x5904e60}
         }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
 
         if #r > 0 then
@@ -212,7 +212,7 @@ function OnOff4()
             applyEdit(r, 0x5905134, gg.TYPE_DWORD, -788446209)
             applyEdit(r, 0x5905138, gg.TYPE_DWORD, -1459525634)
             applyEdit(r, 0x590513C, gg.TYPE_DWORD, -1459462152)
-            gg.toast('❌𝙷𝙰𝙲𝙺 𝙾𝙵𝙵❌')
+            gg.toast('❌Hack Off❌')
             gg.clearResults()
             gg.clearList()
         else
