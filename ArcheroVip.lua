@@ -92,7 +92,7 @@ function OnOff2()
 
         if #r > 0 then
             applyEdit(r, 0x58C8A44, gg.TYPE_DWORD, 1384120320)
-            applyEdit(r, 0x58C8A48, gg.TYPE_DWORD, 1923621888)
+            applyEdit(r, 0x58C8A48, gg.TYPE_DWORD, 1923617792)
             applyEdit(r, 0x58C8A4C, gg.TYPE_DWORD, 505872384)
             applyEdit(r, 0x58C8A50, gg.TYPE_DWORD, -698416192)
             
@@ -181,12 +181,12 @@ function OnOff4()
         }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
 
         if #r > 0 then
-            applyEdit(r, 0x5904e60, gg.TYPE_DWORD, 310820864)
-            applyEdit(r, 0x5904E64, gg.TYPE_DWORD, 1923576640)
+            applyEdit(r, 0x5904e60, gg.TYPE_DWORD, 311263200)
+            applyEdit(r, 0x5904E64, gg.TYPE_DWORD, 1924064928)
             applyEdit(r, 0x5904E68, gg.TYPE_DWORD, -698416192)
             
-            applyEdit(r, 0x5905134, gg.TYPE_DWORD, 310820864)
-            applyEdit(r, 0x5905138, gg.TYPE_DWORD, 1923576640)
+            applyEdit(r, 0x5905134, gg.TYPE_DWORD, 311263200)
+            applyEdit(r, 0x5905138, gg.TYPE_DWORD, 1924064928)
             applyEdit(r, 0x590513C, gg.TYPE_DWORD, -698416192)
             
             gg.toast('✅Hack On✅')
@@ -201,7 +201,7 @@ function OnOff4()
 
         local r = searchValue({
             "1179403647",
-            {310820864, 0x5904e60}
+            {311263200, 0x5904e60}
         }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
 
         if #r > 0 then
