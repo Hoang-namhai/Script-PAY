@@ -1,162 +1,84 @@
+-- ================== LOAD HÀM TỪ LINK ==================
+local url = "https://raw.githubusercontent.com/Hoang-namhai/MENU-HACK/refs/heads/main/Load1sCN.lua"
+local content = gg.makeRequest(url).content
 
--- Load lib từ GitHub
-local libUrl = "https://raw.githubusercontent.com/Hoang-namhai/MENU-HACK/refs/heads/main/KingModVN.lua"
-local libCode = gg.makeRequest(libUrl).content
-if libCode then
-    pcall(load(libCode))
-    gg.toast("❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀")
+if content then
+    pcall(load(content))
 else
-    gg.alert("⚠⚠Bạn Đang Ngoại Tuyến⚠⚠️\n\n⚠⚠Vui Lòng Bật Internet Để Sử Dụng⚠⚠")
+    gg.alert("⚠️Vui lòng kiểm tra kết nối.")
     os.exit()
 end
 
-
 -- ================== MENU ==================
 on = '[✔]'; off = '[✖]'
-H1,H2,H3,H4 = off,off,off,off
+H1 = off
 local L = "libil2cpp.so"
 
 function Main()
     local m = gg.choice({
-        H1.." Free Ads 🚫",
-        H2.." Speed Battle 💨", 
-        H3.." Buff Exp Level 🗯️",
-        H4.." OneHit GodMod 💥",
-        "[EXIT]"
-  }, nil,"❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮ɢᴀᴍᴇ: ᴀʀᴄʜᴇʀ ᴠɪᴘ\n💭ᴠᴇʀꜱɪᴏɴ: 7.8.3 \n------------------------------------------------")
+        H1.." ᴏɴᴇʜɪᴛ test💥",        
+        "[𝐄𝐗𝐈𝐓]"
+  }, nil,"❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮G𝙰𝙼𝙴: 𝙰𝚁𝙲𝙷𝙴𝚁𝙾 𝚅𝙸𝙿\n💭V𝙴𝚁𝚂𝙸𝙾𝙽: 7.9.1 \n------------------------------------------------")
     
     if m == 1 then H1=(H1==on) and off or on; OnOff1()
-    elseif m == 2 then H2=(H2==on) and off or on; OnOff2()
-    elseif m == 3 then H3=(H3==on) and off or on; OnOff3()
-    elseif m == 4 then H4=(H4==on) and off or on; OnOff4()
-    elseif m == 5 then 
+    elseif m == 2 then 
     gg.toast('♥ᴍᴏᴅ ʙʏ ʜᴀ̉ɪ sᴄʀɪᴘᴛ♥')
-    gg.alert("❤️Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀")
-    print('☞♥Zᴀʟᴏ: 0375574755♥☜')
     os.exit() end
 end
 
+--➤ ==================================== 
 function OnOff1()
     if H1 == on then
-        hook(L, 0x2C62000, true, "bool")
-        hook(L, 0x2C620A0, true, "bool")
-        gg.toast('✅ Free Ads ✅')
+        local r = searchValue({
+            "1179403647",
+            {706675681, 0x4f6a42c}
+        }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
+
+        if #r > 0 then
+            applyEdit(r, 0x4f6a42c, gg.TYPE_DWORD, 310820864)
+            applyEdit(r, 0x4F6A430, gg.TYPE_DWORD, 1923576640)
+            applyEdit(r, 0x4F6A434, gg.TYPE_DWORD, -698416192)
+
+            gg.toast('✅ Teast✅')
+            gg.clearResults()
+            gg.clearList()
+        else
+            gg.alert("❌ Không tìm thấy địa chỉ phù hợp!")
+         --   H1 = off  -- Tự động tắt nút nếu không tìm thấy
+        end        
+        
     else
-        unhook(L, 0x2C62000); unhook(L, 0x2C620A0)
-        gg.toast('❌ Free Ads ❌')
-    end
-end
 
-function OnOff2() 
-    if H2 == on then
-iTzMeCoder=gg.getRangesList('libil2cpp.so')[3].start
-iTzMe=nil  iTzMe={}
-iTzMe[1]={}
-iTzMe[1].address=iTzMeCoder+0x2A9F994+0
-iTzMe[1].value='52800000h'
-iTzMe[1].flags=4
-iTzMe[2]={}
-iTzMe[2].address=iTzMeCoder+0x2A9F994+4
-iTzMe[2].value='72A80800h'
-iTzMe[2].flags=4
-iTzMe[3]={}
-iTzMe[3].address=iTzMeCoder+0x2A9F994+8
-iTzMe[3].value='1E270000h'
-iTzMe[3].flags=4
-iTzMe[4]={}
-iTzMe[4].address=iTzMeCoder+0x2A9F994+12
-iTzMe[4].value='D65F03C0h'
-iTzMe[4].flags=4
-gg.setValues(iTzMe)
-        gg.toast('✅ Speed Battle ✅')
-    else
-iTzMeCoder=gg.getRangesList('libil2cpp.so')[3].start
-iTzMe=nil  iTzMe={}
-iTzMe[1]={}
-iTzMe[1].address=iTzMeCoder+0x2A9F994+0
-iTzMe[1].value='FC1D0FE8h'
-iTzMe[1].flags=4
-iTzMe[2]={}
-iTzMe[2].address=iTzMeCoder+0x2A9F994+4
-iTzMe[2].value='A90157FEh'
-iTzMe[2].flags=4
-iTzMe[3]={}
-iTzMe[3].address=iTzMeCoder+0x2A9F994+8
-iTzMe[3].value='A9024FF4h'
-iTzMe[3].flags=4
-iTzMe[4]={}
-iTzMe[4].address=iTzMeCoder+0x2A9F994+12
-iTzMe[4].value='9001BF33h'
-iTzMe[4].flags=4
-gg.setValues(iTzMe)
-        gg.toast('❌ Speed Battle ❌')
-    end
-end
+        local r = searchValue({
+            "1179403647",
+            {310820864, 0x4f6a42c}
+        }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
 
-function OnOff3()
-    if H3 == on then
-iTzMeCoder=gg.getRangesList('libil2cpp.so')[3].start
-iTzMe=nil  iTzMe={}
-iTzMe[1]={}
-iTzMe[1].address=iTzMeCoder+0x2A99200+0
-iTzMe[1].value='1287FFE0h'
-iTzMe[1].flags=4
-iTzMe[2]={}
-iTzMe[2].address=iTzMeCoder+0x2A99200+4
-iTzMe[2].value='72A8BB40h'
-iTzMe[2].flags=4
-iTzMe[3]={}
-iTzMe[3].address=iTzMeCoder+0x2A99200+8
-iTzMe[3].value='1E270000h'
-iTzMe[3].flags=4
-iTzMe[4]={}
-iTzMe[4].address=iTzMeCoder+0x2A99200+12
-iTzMe[4].value='D65F03C0h'
-iTzMe[4].flags=4
-gg.setValues(iTzMe)
-        gg.toast('✅ Buff Exp Level ✅')
-    else
-iTzMeCoder=gg.getRangesList('libil2cpp.so')[3].start
-iTzMe=nil  iTzMe={}
-iTzMe[1]={}
-iTzMe[1].address=iTzMeCoder+0x2A99200+0
-iTzMe[1].value='F81F0FFEh'
-iTzMe[1].flags=4
-iTzMe[2]={}
-iTzMe[2].address=iTzMeCoder+0x2A99200+4
-iTzMe[2].value='F9401C00h'
-iTzMe[2].flags=4
-iTzMe[3]={}
-iTzMe[3].address=iTzMeCoder+0x2A99200+8
-iTzMe[3].value='B4000080h'
-iTzMe[3].flags=4
-iTzMe[4]={}
-iTzMe[4].address=iTzMeCoder+0x2A99200+12
-iTzMe[4].value='AA1F03E1h'
-iTzMe[4].flags=4
-gg.setValues(iTzMe)
-        gg.toast('❌ Buff Exp Level ❌')
-    end
-end
-
-function OnOff4() 
-    if H4 == on then
-        hook(L, 0x2C70FF8, 999999999, "int")
-        hook(L, 0x2C71C0C, 999999999, "int")
-        gg.toast('✅ OneHit GodMod ✅')
-    else
-        unhook(L, 0x2C70FF8); unhook(L, 0x2C71C0C)
-        gg.toast('❌ OneHit GodMod ❌')
-    end
-end
+        if #r > 0 then
+            applyEdit(r, 0x4f6a42c, gg.TYPE_DWORD, 706675681)
+            applyEdit(r, 0x4F6A430, gg.TYPE_DWORD, -1440807966)
+            applyEdit(r, 0x4F6A434, gg.TYPE_DWORD, 335546990)
+            
+            gg.toast('❌ Teast❌')
+            gg.clearResults()
+            gg.clearList()
+        else
+            gg.alert("❌ Không tìm thấy địa chỉ phù hợp!")
+        --    H1 = on
+        end
+        end
+        end
 
 
-
-
+    
+    
+    
+-- ================== VÒNG LẶP CHÍNH ==================
 while true do
     if gg.isVisible(true) then
         gg.setVisible(false)
         Main()
     end
+    gg.sleep(100)  -- Thêm sleep để tránh tốn CPU
     gg.clearResults()
 end
