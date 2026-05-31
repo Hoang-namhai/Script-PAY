@@ -189,6 +189,10 @@ function OnOff4()
             applyEdit(r, 0x25E0584, gg.TYPE_DWORD, 1924064928)
             applyEdit(r, 0x25E0588, gg.TYPE_DWORD, -698416192)
             
+            -- HeadShoot --
+            applyEdit(r, 0x1DA65D0, gg.TYPE_DWORD, -763363296)
+            applyEdit(r, 0x1DA65D4, gg.TYPE_DWORD, -698416192)
+            
             gg.toast('✅Hack On✅')
             gg.clearResults()
             gg.clearList()
@@ -212,6 +216,12 @@ function OnOff4()
             applyEdit(r, 0x25E0580, gg.TYPE_DWORD, -788446209)
             applyEdit(r, 0x25E0584, gg.TYPE_DWORD, -1459525634)
             applyEdit(r, 0x25E0588, gg.TYPE_DWORD, -1459462152)
+            
+                        -- HeadShoot --
+            applyEdit(r, 0x1DA65D0, gg.TYPE_DWORD, -1447143426)
+            applyEdit(r, 0x1DA65D4, gg.TYPE_DWORD, -1459531788)
+            
+            
             gg.toast('❌Hack Off❌')
             gg.clearResults()
             gg.clearList()
