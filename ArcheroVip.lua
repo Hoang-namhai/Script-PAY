@@ -21,7 +21,7 @@ function Main()
         H3.." Buff Exp Level 🗯️",
         H4.." OneHit God Mod 💥",
         "[EXIT]"
-  }, nil,"❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮Gᴀᴍᴇ: Archero Vip\n💭Vᴇʀꜱɪᴏɴ: 7.9.1 \n------------------------------------------------")
+  }, nil,"❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮Gᴀᴍᴇ: Archero Vip\n💭Vᴇʀꜱɪᴏɴ: 7.10.1 \n------------------------------------------------")
     
     if m == 1 then H1=(H1==on) and off or on; OnOff1()
     elseif m == 2 then H2=(H2==on) and off or on; OnOff2()
@@ -39,16 +39,16 @@ function OnOff1()
     if H1 == on then
 
         local r = searchValue({
-            "1179403647",
-            {-1447143426, 0x5AD2C64}
+            "1278035199",
+            {-1447143426, 0x2CF3D9C}
         }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
 
         if #r > 0 then
-            applyEdit(r, 0x5AD2C64, gg.TYPE_DWORD, -763363296)
-            applyEdit(r, 0x5AD2C68, gg.TYPE_DWORD, -698416192)
+            applyEdit(r, 0x2CF3D9C, gg.TYPE_DWORD, -763363296)
+            applyEdit(r, 0x2CF3DA0, gg.TYPE_DWORD, -698416192)
             
-            applyEdit(r, 0x5AD2D04, gg.TYPE_DWORD, -763363296)
-            applyEdit(r, 0x5AD2D08, gg.TYPE_DWORD, -698416192)
+            applyEdit(r, 0x2CF3E3C, gg.TYPE_DWORD, -763363296)
+            applyEdit(r, 0x52CF3E40, gg.TYPE_DWORD, -698416192)
             
             gg.toast('✅Free Ads✅')
             gg.clearResults()
@@ -61,16 +61,16 @@ function OnOff1()
     else
 
         local r = searchValue({
-            "1179403647",
-            {-763363296, 0x5AD2C64}
+            "1278035199",
+            {-763363296, 0x2CF3D9C}
         }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
 
         if #r > 0 then
-            applyEdit(r, 0x5AD2C64, gg.TYPE_DWORD, -1447143426)
-            applyEdit(r, 0x5AD2C68, gg.TYPE_DWORD, -1459531788)
+            applyEdit(r, 0x2CF3D9C, gg.TYPE_DWORD, -1447143426)
+            applyEdit(r, 0x2CF3DA0, gg.TYPE_DWORD, -1459531788)
             
-            applyEdit(r, 0x5AD2D04, gg.TYPE_DWORD, -132247554)
-            applyEdit(r, 0x5AD2D08, gg.TYPE_DWORD, -1459531788)
+            applyEdit(r, 0x2CF3E3C, gg.TYPE_DWORD, -132247554)
+            applyEdit(r, 0x2CF3E40, gg.TYPE_DWORD, -1459531788)
             
             gg.toast('❌Free Ads❌')
             gg.clearResults()
@@ -86,15 +86,15 @@ function OnOff1()
 function OnOff2() 
     if H2 == on then
         local r = searchValue({
-            "1179403647",
-            {-65204248, 0x58C8A44}
+            "1278035199",
+            {-65204248, 0x2A9FB04}
         }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
 
         if #r > 0 then
-            applyEdit(r, 0x58C8A44, gg.TYPE_DWORD, 1384120320)
-            applyEdit(r, 0x58C8A48, gg.TYPE_DWORD, 1923617792)
-            applyEdit(r, 0x58C8A4C, gg.TYPE_DWORD, 505872384)
-            applyEdit(r, 0x58C8A50, gg.TYPE_DWORD, -698416192)
+            applyEdit(r, 0x2A9FB04, gg.TYPE_DWORD, 1384120320)
+            applyEdit(r, 0x2A9FB08, gg.TYPE_DWORD, 1923617792)
+            applyEdit(r, 0x2A9FB0C, gg.TYPE_DWORD, 505872384)
+            applyEdit(r, 0x2A9FB10, gg.TYPE_DWORD, -698416192)
             
             gg.toast('✅ Speed ✅')
             gg.clearResults()
@@ -107,15 +107,15 @@ function OnOff2()
     else
 
         local r = searchValue({
-            "1179403647",
-            {1384120320, 0x58C8A44}
+            "1278035199",
+            {1384120320, 0x2A9FB04}
         }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
 
         if #r > 0 then
-            applyEdit(r, 0x58C8A44, gg.TYPE_DWORD, -65204248)
-            applyEdit(r, 0x58C8A48, gg.TYPE_DWORD, -1459529730)
-            applyEdit(r, 0x58C8A4C, gg.TYPE_DWORD, -1459466252)
-            applyEdit(r, 0x58C8A50, gg.TYPE_DWORD, -1342060941)
+            applyEdit(r, 0x2A9FB04, gg.TYPE_DWORD, -65204248)
+            applyEdit(r, 0x2A9FB08, gg.TYPE_DWORD, -1459529730)
+            applyEdit(r, 0x2A9FB0C, gg.TYPE_DWORD, -1459466252)
+            applyEdit(r, 0x2A9FB10, gg.TYPE_DWORD, -1342060941)
 
             gg.toast('❌ Speed ❌')
             gg.clearResults()
@@ -131,15 +131,15 @@ function OnOff2()
 function OnOff3()
     if H3 == on then
         local r = searchValue({
-            "1179403647",
-            {-65204248, 0x4F68E3C}
+            "1278035199",
+            {-65204248, 0x20EE694}
         }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
 
         if #r > 0 then
-            applyEdit(r, 0x4F68E3C, gg.TYPE_DWORD, 310902752)
-            applyEdit(r, 0x4F68E40, gg.TYPE_DWORD, 1923660608)
-            applyEdit(r, 0x4F68E44, gg.TYPE_DWORD, 505872384)
-            applyEdit(r, 0x4F68E48, gg.TYPE_DWORD, -698416192)
+            applyEdit(r, 0x20EE694, gg.TYPE_DWORD, 310902752)
+            applyEdit(r, 0x20EE698, gg.TYPE_DWORD, 1923660608)
+            applyEdit(r, 0x20EE69C, gg.TYPE_DWORD, 505872384)
+            applyEdit(r, 0x20EE6A0, gg.TYPE_DWORD, -698416192)
 
             gg.toast('✅Buff Exp✅')
             gg.clearResults()
@@ -152,15 +152,15 @@ function OnOff3()
     else
 
         local r = searchValue({
-            "1179403647",
-            {310902752, 0x4F68E3C}
+            "1278035199",
+            {310902752, 0x20EE694}
         }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
 
         if #r > 0 then
-            applyEdit(r, 0x4F68E3C, gg.TYPE_DWORD, -65204248)
-            applyEdit(r, 0x4F68E40, gg.TYPE_DWORD, -117438466)
-            applyEdit(r, 0x4F68E44, gg.TYPE_DWORD, -1459529738)
-            applyEdit(r, 0x4F68E48, gg.TYPE_DWORD, -1459466252)
+            applyEdit(r, 0x20EE694, gg.TYPE_DWORD, -65204248)
+            applyEdit(r, 0x20EE698, gg.TYPE_DWORD, -117438466)
+            applyEdit(r, 0x20EE69C, gg.TYPE_DWORD, -1459529738)
+            applyEdit(r, 0x20EE6A0, gg.TYPE_DWORD, -1459466252)
             
             gg.toast('❌Buff Exp❌')
             gg.clearResults()
@@ -176,18 +176,18 @@ function OnOff3()
 function OnOff4() 
     if H4 == on then
                 local r = searchValue({
-            "1179403647",
-            {-788446209, 0x5904e60}
+            "1278035199",
+            {-788446209, 0x25E02AC}
         }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
 
         if #r > 0 then
-            applyEdit(r, 0x5904e60, gg.TYPE_DWORD, 311263200)
-            applyEdit(r, 0x5904E64, gg.TYPE_DWORD, 1924064928)
-            applyEdit(r, 0x5904E68, gg.TYPE_DWORD, -698416192)
+            applyEdit(r, 0x25E02AC, gg.TYPE_DWORD, 311263200)
+            applyEdit(r, 0x25E02B0, gg.TYPE_DWORD, 1924064928)
+            applyEdit(r, 0x25E02B4, gg.TYPE_DWORD, -698416192)
             
-            applyEdit(r, 0x5905134, gg.TYPE_DWORD, 311263200)
-            applyEdit(r, 0x5905138, gg.TYPE_DWORD, 1924064928)
-            applyEdit(r, 0x590513C, gg.TYPE_DWORD, -698416192)
+            applyEdit(r, 0x25E0580, gg.TYPE_DWORD, 311263200)
+            applyEdit(r, 0x25E0584, gg.TYPE_DWORD, 1924064928)
+            applyEdit(r, 0x25E0588, gg.TYPE_DWORD, -698416192)
             
             gg.toast('✅Hack On✅')
             gg.clearResults()
@@ -200,18 +200,18 @@ function OnOff4()
     else
 
         local r = searchValue({
-            "1179403647",
-            {311263200, 0x5904e60}
+            "1278035199",
+            {311263200, 0x25E02AC}
         }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
 
         if #r > 0 then
-            applyEdit(r, 0x5904e60, gg.TYPE_DWORD, -788446209)
-            applyEdit(r, 0x5904E64, gg.TYPE_DWORD, -1459525634)
-            applyEdit(r, 0x5904E68, gg.TYPE_DWORD, -1459462152)
+            applyEdit(r, 0x25E02AC, gg.TYPE_DWORD, -788446209)
+            applyEdit(r, 0x25E02B0, gg.TYPE_DWORD, -1459525634)
+            applyEdit(r, 0x25E02B4, gg.TYPE_DWORD, -1459462152)
             
-            applyEdit(r, 0x5905134, gg.TYPE_DWORD, -788446209)
-            applyEdit(r, 0x5905138, gg.TYPE_DWORD, -1459525634)
-            applyEdit(r, 0x590513C, gg.TYPE_DWORD, -1459462152)
+            applyEdit(r, 0x25E0580, gg.TYPE_DWORD, -788446209)
+            applyEdit(r, 0x25E0584, gg.TYPE_DWORD, -1459525634)
+            applyEdit(r, 0x25E0588, gg.TYPE_DWORD, -1459462152)
             gg.toast('❌Hack Off❌')
             gg.clearResults()
             gg.clearList()
