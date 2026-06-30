@@ -1,19 +1,167 @@
--- ================== LOAD HÀM TỪ LINK ==================
-local url = "https://raw.githubusercontent.com/Hoang-namhai/MENU-HACK/refs/heads/main/Load1sCN.lua"
-local content = gg.makeRequest(url).content
-
-if content then
-    pcall(load(content))
-else
-    gg.alert("⚠️Vui lòng kiểm tra kết nối.")
-    os.exit()
-end
+local gg = gg
 
 -- ================== MENU ==================
 on = '[✔]'; off = '[✖]'
-H1,H2,H3,H4 = off,off,off,off
+H1, H2, H3, H4 = off, off, off, off
 local L = "libil2cpp.so"
 
+-- ============================================
+-- TÌM LIB
+-- ============================================
+local bases, index, status = {}, 0, 0
+local ranges = gg.getRangesList(L)
+if #ranges == 0 then status = 2 goto SPLIT end
+
+for _, r in ipairs(ranges) do
+    if r.state == "Xa" then
+        index = index + 1
+        bases[index] = r.start
+        status = 1
+    end
+end
+
+::SPLIT::
+if status == 2 then
+    local found, sizes, count = false, {}, 0
+    ranges = gg.getRangesList()
+    for _, r in ipairs(ranges) do
+        if r.state == "Xa" and r.name:match("split_config") then found = true end
+    end
+    if not found then print("No split lib."); gg.setVisible(true); os.exit() end
+    for _, r in ipairs(ranges) do
+        if r.state == "Xa" then
+            count = count + 1
+            sizes[count] = r["end"] - r.start
+        end
+    end
+    if count > 0 then
+        local max = math.max(table.unpack(sizes))
+        for _, r in ipairs(ranges) do
+            if r.state == "Xa" and (r["end"] - r.start) == max then
+                index = index + 1
+                bases[index] = r.start
+                status = 1
+            end
+        end
+    end
+end
+
+if status ~= 1 then print("Lib not found."); gg.setVisible(true); os.exit() end
+
+-- ============================================
+-- BACKUP & PATCH
+-- ============================================
+local orig = {}
+
+function reset(off)
+    if orig[off] then
+        gg.setValues(orig[off])
+     --   gg.toast("[✓] Restored")
+     --   gg.sleep(1000)
+    else
+        gg.alert("ERR - Không có backup!")
+    end
+end
+
+function setHex(offset, hex)
+    local base = bases[index]
+    if not base then
+        gg.alert("❌ Không tìm thấy base!")
+        return false
+    end
+    
+    if not orig[offset] then
+        local backup, patch, total = {}, {}, 0
+        for h in string.gmatch(hex, "%S%S") do
+            local addr = base + offset + total
+            table.insert(backup, {address = addr, flags = gg.TYPE_BYTE})
+            table.insert(patch, {address = addr, flags = gg.TYPE_BYTE, value = h .. "r"})
+            total = total + 1
+        end
+        orig[offset] = gg.getValues(backup)
+        gg.setValues(patch)
+    else
+        local patch, total = {}, 0
+        for h in string.gmatch(hex, "%S%S") do
+            table.insert(patch, {address = base + offset + total, flags = gg.TYPE_BYTE, value = h .. "r"})
+            total = total + 1
+        end
+        gg.setValues(patch)
+    end
+    return true
+end
+
+-- ============================================
+-- HACK 1: FREE ADS
+-- ============================================
+function OnOff1()
+    if H1 == on then
+        -- BẬT FREE ADS
+        setHex(0x2B7D440, "20 00 80 D2 C0 03 5F D6")
+        setHex(0x2B7D4E0, "20 00 80 D2 C0 03 5F D6")
+        gg.toast('✅Free Ads✅')
+    else
+        -- TẮT FREE ADS
+        reset(0x2B7D440)
+        reset(0x2B7D4E0)
+        gg.toast('❌Free Ads❌')
+    end
+end
+
+-- ============================================
+-- HACK 2: SPEED BATTLE
+-- ============================================
+function OnOff2()
+    if H2 == on then
+        -- BẬT SPEED 5.0
+        setHex(0x2A0938C, "00 00 80 52 00 14 A8 72 00 00 27 1E C0 03 5F D6")
+        gg.toast('✅ Speed ✅')
+    else
+        -- TẮT SPEED
+        reset(0x2A0938C)
+        gg.toast('❌ Speed ❌')
+    end
+end
+
+-- ============================================
+-- HACK 3: BUFF EXP LEVEL
+-- ============================================
+function OnOff3()
+    if H3 == on then
+        -- BẬT BUFF EXP
+        setHex(0x20C79B0, "E0 FF 87 12 40 BB A8 72 00 00 27 1E C0 03 5F D6")
+        gg.toast('✅Buff Exp✅')
+    else
+        -- TẮT BUFF EXP
+        reset(0x20C79B0)
+        gg.toast('❌Buff Exp❌')
+    end
+end
+
+-- ============================================
+-- HACK 4: ONEHIT GOD MOD
+-- ============================================
+function OnOff4()
+    if H4 == on then
+        -- BẬT ONEHIT
+        setHex(0x24938BC, "E0 BF 85 12 20 69 AD 72 C0 03 5F D6")
+        setHex(0x2493B90, "E0 BF 85 12 20 69 AD 72 C0 03 5F D6")
+        
+        -- HEADSHOT 
+        setHex(0x1D9F70C, "20 00 80 D2 C0 03 5F D6")
+        gg.toast('✅Hack OK✅')
+    else
+        -- TẮT ONEHIT
+        reset(0x24938BC)
+        reset(0x2493B90)
+        reset(0x1D9F70C)
+        gg.toast('❌Hack OFF❌')
+    end
+end
+
+-- ============================================
+-- MAIN MENU (Giao diện như cũ)
+-- ============================================
 function Main()
     local m = gg.choice({
         H1.." Free Ads 🚫",
@@ -21,227 +169,36 @@ function Main()
         H3.." Buff Exp Level 🗯️",
         H4.." OneHit God Mod 💥",
         "[EXIT]"
-  }, nil,"❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮Gᴀᴍᴇ: Archero Vip\n💭Vᴇʀꜱɪᴏɴ: 7.10.1 \n------------------------------------------------")
+    }, nil, "❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮Gᴀᴍᴇ: Archero Vip\n💭Vᴇʀꜱɪᴏɴ: 7.10.5 \n------------------------------------------------")
     
-    if m == 1 then H1=(H1==on) and off or on; OnOff1()
-    elseif m == 2 then H2=(H2==on) and off or on; OnOff2()
-    elseif m == 3 then H3=(H3==on) and off or on; OnOff3()
-    elseif m == 4 then H4=(H4==on) and off or on; OnOff4()
+    if m == 1 then 
+        H1 = (H1 == on) and off or on
+        OnOff1()
+    elseif m == 2 then 
+        H2 = (H2 == on) and off or on
+        OnOff2()
+    elseif m == 3 then 
+        H3 = (H3 == on) and off or on
+        OnOff3()
+    elseif m == 4 then 
+        H4 = (H4 == on) and off or on
+        OnOff4()
     elseif m == 5 then 
-    gg.toast('♥ᴍᴏᴅ ʙʏ ʜᴀ̉ɪ sᴄʀɪᴘᴛ♥')
-    gg.alert("❤️Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀")
-    print('☞♥Zᴀʟᴏ: 0375574755♥☜')
-    os.exit() end
+        gg.toast('♥ᴍᴏᴅ ʙʏ ʜᴀ̉ɪ sᴄʀɪᴘᴛ♥')
+        gg.alert("❤️Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀")
+        print('☞♥Zᴀʟᴏ: 0375574755♥☜')
+        os.exit() 
+    end
 end
 
---➤ ==================================== 
-function OnOff1()
-    if H1 == on then
-
-        local r = searchValue({
-            "1278035199",
-            {-1447143426, 0x2CF3D9C}
-        }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
-
-        if #r > 0 then
-            applyEdit(r, 0x2CF3D9C, gg.TYPE_DWORD, -763363296)
-            applyEdit(r, 0x2CF3DA0, gg.TYPE_DWORD, -698416192)
-            
-            applyEdit(r, 0x2CF3E3C, gg.TYPE_DWORD, -763363296)
-            applyEdit(r, 0x52CF3E40, gg.TYPE_DWORD, -698416192)
-            
-            gg.toast('✅Free Ads✅')
-            gg.clearResults()
-            gg.clearList()
-        else
-            gg.alert("❌ Không tìm thấy địa chỉ phù hợp!")
-         --   H1 = off  -- Tự động tắt nút nếu không tìm thấy
-        end        
-        
-    else
-
-        local r = searchValue({
-            "1278035199",
-            {-763363296, 0x2CF3D9C}
-        }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
-
-        if #r > 0 then
-            applyEdit(r, 0x2CF3D9C, gg.TYPE_DWORD, -1447143426)
-            applyEdit(r, 0x2CF3DA0, gg.TYPE_DWORD, -1459531788)
-            
-            applyEdit(r, 0x2CF3E3C, gg.TYPE_DWORD, -132247554)
-            applyEdit(r, 0x2CF3E40, gg.TYPE_DWORD, -1459531788)
-            
-            gg.toast('❌Free Ads❌')
-            gg.clearResults()
-            gg.clearList()
-        else
-            gg.alert("❌ Không tìm thấy địa chỉ phù hợp!")
-        --    H1 = on
-        end
-        end
-        end
-
---➤ ==================================== 
-function OnOff2() 
-    if H2 == on then
-        local r = searchValue({
-            "1278035199",
-            {-65204248, 0x2A9FB04}
-        }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
-
-        if #r > 0 then
-            applyEdit(r, 0x2A9FB04, gg.TYPE_DWORD, 1384120320)
-            applyEdit(r, 0x2A9FB08, gg.TYPE_DWORD, 1923617792)
-            applyEdit(r, 0x2A9FB0C, gg.TYPE_DWORD, 505872384)
-            applyEdit(r, 0x2A9FB10, gg.TYPE_DWORD, -698416192)
-            
-            gg.toast('✅ Speed ✅')
-            gg.clearResults()
-            gg.clearList()
-        else
-            gg.alert("❌ Không tìm thấy địa chỉ phù hợp!")
-         --   H1 = off  -- Tự động tắt nút nếu không tìm thấy
-        end        
-        
-    else
-
-        local r = searchValue({
-            "1278035199",
-            {1384120320, 0x2A9FB04}
-        }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
-
-        if #r > 0 then
-            applyEdit(r, 0x2A9FB04, gg.TYPE_DWORD, -65204248)
-            applyEdit(r, 0x2A9FB08, gg.TYPE_DWORD, -1459529730)
-            applyEdit(r, 0x2A9FB0C, gg.TYPE_DWORD, -1459466252)
-            applyEdit(r, 0x2A9FB10, gg.TYPE_DWORD, -1342060941)
-
-            gg.toast('❌ Speed ❌')
-            gg.clearResults()
-            gg.clearList()
-        else
-            gg.alert("❌ Không tìm thấy địa chỉ phù hợp!")
-        --    H1 = on
-        end
-        end
-        end
-
---➤ ==================================== 
-function OnOff3()
-    if H3 == on then
-        local r = searchValue({
-            "1278035199",
-            {-65204248, 0x20EE694}
-        }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
-
-        if #r > 0 then
-            applyEdit(r, 0x20EE694, gg.TYPE_DWORD, 310902752)
-            applyEdit(r, 0x20EE698, gg.TYPE_DWORD, 1923660608)
-            applyEdit(r, 0x20EE69C, gg.TYPE_DWORD, 505872384)
-            applyEdit(r, 0x20EE6A0, gg.TYPE_DWORD, -698416192)
-
-            gg.toast('✅Buff Exp✅')
-            gg.clearResults()
-            gg.clearList()
-        else
-            gg.alert("❌ Không tìm thấy địa chỉ phù hợp!")
-         --   H1 = off  -- Tự động tắt nút nếu không tìm thấy
-        end        
-        
-    else
-
-        local r = searchValue({
-            "1278035199",
-            {310902752, 0x20EE694}
-        }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
-
-        if #r > 0 then
-            applyEdit(r, 0x20EE694, gg.TYPE_DWORD, -65204248)
-            applyEdit(r, 0x20EE698, gg.TYPE_DWORD, -117438466)
-            applyEdit(r, 0x20EE69C, gg.TYPE_DWORD, -1459529738)
-            applyEdit(r, 0x20EE6A0, gg.TYPE_DWORD, -1459466252)
-            
-            gg.toast('❌Buff Exp❌')
-            gg.clearResults()
-            gg.clearList()
-        else
-            gg.alert("❌ Không tìm thấy địa chỉ phù hợp!")
-        --    H1 = on
-        end
-        end
-        end
-
---➤ ==================================== 
-function OnOff4() 
-    if H4 == on then
-                local r = searchValue({
-            "1278035199",
-            {-788446209, 0x25E02AC}
-        }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
-
-        if #r > 0 then
-            applyEdit(r, 0x25E02AC, gg.TYPE_DWORD, 311263200)
-            applyEdit(r, 0x25E02B0, gg.TYPE_DWORD, 1924064928)
-            applyEdit(r, 0x25E02B4, gg.TYPE_DWORD, -698416192)
-            
-            applyEdit(r, 0x25E0580, gg.TYPE_DWORD, 311263200)
-            applyEdit(r, 0x25E0584, gg.TYPE_DWORD, 1924064928)
-            applyEdit(r, 0x25E0588, gg.TYPE_DWORD, -698416192)
-            
-            -- HeadShoot --
-            applyEdit(r, 0x1DA65D0, gg.TYPE_DWORD, -763363296)
-            applyEdit(r, 0x1DA65D4, gg.TYPE_DWORD, -698416192)
-            
-            gg.toast('✅Hack On✅')
-            gg.clearResults()
-            gg.clearList()
-        else
-            gg.alert("❌ Không tìm thấy địa chỉ phù hợp!")
-         --   H1 = off  -- Tự động tắt nút nếu không tìm thấy
-        end        
-        
-    else
-
-        local r = searchValue({
-            "1278035199",
-            {311263200, 0x25E02AC}
-        }, gg.REGION_C_DATA | gg.REGION_CODE_APP, gg.TYPE_DWORD)
-
-        if #r > 0 then
-            applyEdit(r, 0x25E02AC, gg.TYPE_DWORD, -788446209)
-            applyEdit(r, 0x25E02B0, gg.TYPE_DWORD, -1459525634)
-            applyEdit(r, 0x25E02B4, gg.TYPE_DWORD, -1459462152)
-            
-            applyEdit(r, 0x25E0580, gg.TYPE_DWORD, -788446209)
-            applyEdit(r, 0x25E0584, gg.TYPE_DWORD, -1459525634)
-            applyEdit(r, 0x25E0588, gg.TYPE_DWORD, -1459462152)
-            
-                        -- HeadShoot --
-            applyEdit(r, 0x1DA65D0, gg.TYPE_DWORD, -1447143426)
-            applyEdit(r, 0x1DA65D4, gg.TYPE_DWORD, -1459531788)
-            
-            
-            gg.toast('❌Hack Off❌')
-            gg.clearResults()
-            gg.clearList()
-        else
-            gg.alert("❌ Không tìm thấy địa chỉ phù hợp!")
-        --    H1 = on
-        end
-        end
-        end
-    
-    
-    
-    
-    
--- ================== VÒNG LẶP CHÍNH ==================
+-- ============================================
+-- VÒNG LẶP CHÍNH
+-- ============================================
 while true do
     if gg.isVisible(true) then
         gg.setVisible(false)
         Main()
     end
-    gg.sleep(100)  -- Thêm sleep để tránh tốn CPU
+    gg.sleep(100)
     gg.clearResults()
 end
