@@ -97,13 +97,13 @@ end
 function OnOff1()
     if H1 == on then
         -- BẬT FREE ADS
-        setHex(0x2C24BF8, "20 00 80 D2 C0 03 5F D6")
-        setHex(0x2C24C98, "20 00 80 D2 C0 03 5F D6")
+        setHex(0x2C24AAC, "20 00 80 D2 C0 03 5F D6")
+        setHex(0x2C24B4C, "20 00 80 D2 C0 03 5F D6")
         gg.toast('✅Free Ads✅')
     else
         -- TẮT FREE ADS
-        reset(0x2C24BF8)
-        reset(0x2C24C98)
+        reset(0x2C24AAC)
+        reset(0x2C24B4C)
         gg.toast('❌Free Ads❌')
     end
 end
@@ -114,11 +114,11 @@ end
 function OnOff2()
     if H2 == on then
         -- BẬT SPEED 5.0
-        setHex(0x2A35C74, "00 00 80 52 00 14 A8 72 00 00 27 1E C0 03 5F D6")
+        setHex(0x2A35B28, "00 00 80 52 00 14 A8 72 00 00 27 1E C0 03 5F D6")
         gg.toast('✅ Speed ✅')
     else
         -- TẮT SPEED
-        reset(0x2A35C74)
+        reset(0x2A35B28)
         gg.toast('❌ Speed ❌')
     end
 end
@@ -129,11 +129,11 @@ end
 function OnOff3()
     if H3 == on then
         -- BẬT BUFF EXP
-        setHex(0x20CC144, "00 00 98 52 40 BB A8 72 00 00 27 1E C0 03 5F D6") --7000
+        setHex(0x20CC050, "00 00 98 52 40 BB A8 72 00 00 27 1E C0 03 5F D6") --7000
         gg.toast('✅Buff Exp✅')
     else
         -- TẮT BUFF EXP
-        reset(0x20CC144)
+        reset(0x20CC050)
         gg.toast('❌Buff Exp❌')
     end
 end
@@ -144,17 +144,17 @@ end
 function OnOff4()
     if H4 == on then
         -- BẬT ONEHIT
-        setHex(0X2536A4C, "00 40 9A 52 20 69 AD 72 C0 03 5F D6")
-        setHex(0x2536D20, "00 40 9A 52 20 69 AD 72 C0 03 5F D6")
+        setHex(0X2536900, "00 40 9A 52 20 69 AD 72 C0 03 5F D6")
+        setHex(0x2536BD4, "00 40 9A 52 20 69 AD 72 C0 03 5F D6")
         
         -- HEADSHOT 
-        setHex(0x1D96998, "20 00 80 D2 C0 03 5F D6")
+        setHex(0x1D968A4, "20 00 80 D2 C0 03 5F D6")
         gg.toast('✅Hack OK✅')
     else
         -- TẮT ONEHIT
-        reset(0X2536A4C)
-        reset(0x2536D20)
-        reset(0x1D96998)
+        reset(0X2536900)
+        reset(0x2536BD4)
+        reset(0x1D968A4)
         gg.toast('❌Hack OFF❌')
     end
 end
@@ -169,7 +169,7 @@ function Main()
         H3.." Buff Exp Level 🗯️",
         H4.." OneHit God Mod 💥",
         "[EXIT]"
-    }, nil, "❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮Gᴀᴍᴇ: Archero Vip\n💭Vᴇʀꜱɪᴏɴ: 8.0.1 \n------------------------------------------------")
+    }, nil, "❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮Gᴀᴍᴇ: Archero Vip\n💭Vᴇʀꜱɪᴏɴ: 8.0.2 \n------------------------------------------------")
     
     if m == 1 then 
         H1 = (H1 == on) and off or on
