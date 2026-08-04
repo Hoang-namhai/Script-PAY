@@ -10,15 +10,15 @@ HDR = "❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮G𝙰𝙼𝙴:
 
 function Menu()
 local menu=gg.choice({
-"༒Damage Vip [ Load ]༒",
-"༒Time End [ Trận ]༒",
-"༒Skill Vip [ Trận ]༒",
-"༒Bí Cảnh [ Trận ]༒",
-"༒Gia Tộc [ Trận ]༒",
-"༒Ngư Ca Đàm [ Sảnh ]༒",
-"༒Speed X2 [ Sảnh ]༒",
-"༒[ Hướng Dẫn SD ]༒",
-"༒Zalo ADMIN༒",
+"Damage Vip [ Load ]",
+"Time End [ Trận ]",
+"Skill Vip [ Trận ]",
+"Bí Cảnh [ Trận ]",
+"Gia Tộc [ Trận ]",
+"Ngư Ca Đàm [ Sảnh ]",
+"Speed X2 [ Sảnh ]",
+"[ Hướng Dẫn SD ]",
+"Zalo ADMIN",
 "Exit",
 },nil,HDR)
 if menu==nil then else
@@ -144,7 +144,7 @@ end
 
 
 function F4()
-local HNH4 = gg.alert('❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n--------------------------------------------\n\n➤ 𝙵𝚄𝙽𝙲𝚃𝙸𝙾𝙽 𝙼𝙾𝙳:\n[༒Bí Cảnh༒]\n\n➤ Lưu Ý:\n➤ Chức Năng Bật Trong Trận Nhé...\n➤ Combo1 Là X1500 Liên Tục...\n➤ Còn Combo2 Là Giữ Liên Trảm Combo Liên Tục Nhé ', '[🔰Combo1🔰]', '[🔰Combo2🔰]')
+local HNH4 = gg.alert('❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n--------------------------------------------\n\n➤ 𝙵𝚄𝙽𝙲𝚃𝙸𝙾𝙽 𝙼𝙾𝙳:\n[Bí Cảnh]\n\n➤ Lưu Ý:\n➤ Chức Năng Bật Trong Trận Nhé...\n➤ Combo1 Là X1500 Liên Tục...\n➤ Còn Combo2 Là Giữ Liên Trảm Combo Liên Tục Nhé ', '[🔰Combo1🔰]', '[🔰Combo2🔰]')
 if HNH4 == nil then return 
 else
 if HNH4 == 1 then ONBC1() end
@@ -198,7 +198,7 @@ end
 
 
 function F5()
-local HNH5 = gg.alert('❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n--------------------------------------------\n\n➤ 𝙵𝚄𝙽𝙲𝚃𝙸𝙾𝙽 𝙼𝙾𝙳:\n[༒Bí Cảnh༒]\n\n➤ Lưu Ý:\n➤ Chức Năng Bật Trong Trận Nhé...\n➤ Combo1 Là X1500 Liên Tục...\n➤ Còn Combo2 Là Giữ Liên Trảm Combo Liên Tục Nhé ', '[🔰Combo1🔰]', '[🔰Combo2🔰]')
+local HNH5 = gg.alert('❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n--------------------------------------------\n\n➤ 𝙵𝚄𝙽𝙲𝚃𝙸𝙾𝙽 𝙼𝙾𝙳:\n[Bí Cảnh]\n\n➤ Lưu Ý:\n➤ Chức Năng Bật Trong Trận Nhé...\n➤ Combo1 Là X1500 Liên Tục...\n➤ Còn Combo2 Là Giữ Liên Trảm Combo Liên Tục Nhé ', '[🔰Combo1🔰]', '[🔰Combo2🔰]')
 if HNH5 == nil then return 
 else
 if HNH5 == 1 then ONGT1() end
@@ -401,7 +401,7 @@ end
 
 
 function F8()
-gg.alert("1. ༒Damage Vip ༒\n[ Chức Năng Này Tùy Phiên Bản Mà AE Sử Dụng, Bắt Đầu Thì AE Vào 1 Trận Đấu Bất Kỳ Rồi Đợi Đến 5s Xong Thoát Ra Luôn Nhé. Ra Tới Sảnh AE Mới Bật Chức Năng Này... Nếu AE Vào Trận Có One Hit Và Bất Tử Rồi Thì Không Cần Bật Lại Nữa Nhé, Còn Nếu Không Có Thì AE Cứ Vào Trong Trận Rồi Bật Là Được.. Mình Đã Test Qua Mấy Bản Nhưng Có Bản Chỉ Cần Bật 1 Lần Là Sài Mãi, Có Bản Thì Mỗi Trận Bật 1 Lần, Vậy Nên AE Cứ Test Sao Cho Phù Hợp Với Phiên Bản Mà AE Sử Dụng Nhé].\n\n\n2. ༒Time Vip༒\n[Chức Năng Này AE Vào Trận Mới Bật Nhé, AE Đợi Qua 1s Rồi Bật Nha, Chức Năng Này Mỗi Trận Bật 1 Lần].\n\n\n3. ༒Skill Vip༒\n[Chức Năng Này Vào Trận Mới Bật Nhé, Nó Sẽ Buff Skill AE Chạy Vô Hạn, Nôm Na Là Vậy, Nói Chung Cũng Không Cần Thiết Bật Đâu, AE Muốn Thử Thì Cứ Thử Nhé, Chức Năng Này Mỗi Trận Nếu Nó Không Hoạt Động Thì Bật Lại].\n\n\n4. ༒Bí Cảnh༒\n[ Là Chức Năng Giữ Combo Liên Tục Khi AE đánh Bí Cảnh Nhé, Thường Thì AE Mà Không Giết Quái Liên Tục Nó Sẽ Mất Combo Liên Tục Thì Hack Này Sẽ Giữ Combo Cho AE Nhé, AE Giết Được Bao Nhiêu Quái Nó Sẽ + Dồn Combo Bằng Đấy Cho AE.\n Chức Năng Này Mỗi Trận Bật 1 Lần]>\n\n\n5. ༒Gia Tộc༒\n[ Chức Năng Này Giống Chức Năng Bí Cảnh Nhé.. Dùng Trong Map Gia Tộc...]\n\n\n6 ༒Ngư Ca Đàm༒\n[Chức Năng Này Là Hack Level Ngư Ca Đàm Nhé...]\nYêu Cầu Level 5 Trở Lên Để Kích Hoạt Được Full Nhé\nAE Điền Theo Tương Ứng Với Level Nhé:\n\nLVL1;   LVL2;   LVL3;   LVL4;       \n 6619252;3014771;6422625:113\n\n-> Ví Dụ:\n\n5;   10;   15;   20;       \n 6619252;3014771;6422625:113\n\n-> Xong Ấn Chạy Là Ok Nhé...\n\n\n\n\n7. ༒Speed X2༒\n[Chức Năng Này Sẽ Tăng Tốc Game Chạy x2, Chức Năng Này Mình Thấy Cũng Không Cần Thiết Lắm, AE Muốn Sài Thì Cứ Bật, Bật Ở Sảnh Nhé, Nên Bật Cuối Cùng].\n\n\n8. [À Ờ Thì AE Còn Chơi Game Gì Thì Có Thể ALO Mình Test Hack Nhé AE, Game Này Mình Còn Có Bản Mod APK Nữa, Không Cần Root Hay Chạy Qua Không Gian Ảo, Nhưng 1 Số Máy Lỗi Tí Kk, Hên Xui, Vậy Nhé AE Cần Hỗ Trợ Hay Muốn Nâng Cấp Gì Cứ Alo Mình. Cảm Ơn AE Đã Ủng Hộ!🔥].")
+gg.alert("1. Damage Vip \n[ Chức Năng Này Tùy Phiên Bản Mà AE Sử Dụng, Bắt Đầu Thì AE Vào 1 Trận Đấu Bất Kỳ Rồi Đợi Đến 5s Xong Thoát Ra Luôn Nhé. Ra Tới Sảnh AE Mới Bật Chức Năng Này... Nếu AE Vào Trận Có One Hit Và Bất Tử Rồi Thì Không Cần Bật Lại Nữa Nhé, Còn Nếu Không Có Thì AE Cứ Vào Trong Trận Rồi Bật Là Được.. Mình Đã Test Qua Mấy Bản Nhưng Có Bản Chỉ Cần Bật 1 Lần Là Sài Mãi, Có Bản Thì Mỗi Trận Bật 1 Lần, Vậy Nên AE Cứ Test Sao Cho Phù Hợp Với Phiên Bản Mà AE Sử Dụng Nhé].\n\n\n2. Time Vip\n[Chức Năng Này AE Vào Trận Mới Bật Nhé, AE Đợi Qua 1s Rồi Bật Nha, Chức Năng Này Mỗi Trận Bật 1 Lần].\n\n\n3. Skill Vip\n[Chức Năng Này Vào Trận Mới Bật Nhé, Nó Sẽ Buff Skill AE Chạy Vô Hạn, Nôm Na Là Vậy, Nói Chung Cũng Không Cần Thiết Bật Đâu, AE Muốn Thử Thì Cứ Thử Nhé, Chức Năng Này Mỗi Trận Nếu Nó Không Hoạt Động Thì Bật Lại].\n\n\n4. Bí Cảnh\n[ Là Chức Năng Giữ Combo Liên Tục Khi AE đánh Bí Cảnh Nhé, Thường Thì AE Mà Không Giết Quái Liên Tục Nó Sẽ Mất Combo Liên Tục Thì Hack Này Sẽ Giữ Combo Cho AE Nhé, AE Giết Được Bao Nhiêu Quái Nó Sẽ + Dồn Combo Bằng Đấy Cho AE.\n Chức Năng Này Mỗi Trận Bật 1 Lần]>\n\n\n5. Gia Tộc\n[ Chức Năng Này Giống Chức Năng Bí Cảnh Nhé.. Dùng Trong Map Gia Tộc...]\n\n\n6 Ngư Ca Đàm\n[Chức Năng Này Là Hack Level Ngư Ca Đàm Nhé...]\nYêu Cầu Level 5 Trở Lên Để Kích Hoạt Được Full Nhé\nAE Điền Theo Tương Ứng Với Level Nhé:\n\nLVL1;   LVL2;   LVL3;   LVL4;       \n 6619252;3014771;6422625:113\n\n-> Ví Dụ:\n\n5;   10;   15;   20;       \n 6619252;3014771;6422625:113\n\n-> Xong Ấn Chạy Là Ok Nhé...\n\n\n\n\n7. Speed X2\n[Chức Năng Này Sẽ Tăng Tốc Game Chạy x2, Chức Năng Này Mình Thấy Cũng Không Cần Thiết Lắm, AE Muốn Sài Thì Cứ Bật, Bật Ở Sảnh Nhé, Nên Bật Cuối Cùng].\n\n\n8. [À Ờ Thì AE Còn Chơi Game Gì Thì Có Thể ALO Mình Test Hack Nhé AE, Game Này Mình Còn Có Bản Mod APK Nữa, Không Cần Root Hay Chạy Qua Không Gian Ảo, Nhưng 1 Số Máy Lỗi Tí Kk, Hên Xui, Vậy Nhé AE Cần Hỗ Trợ Hay Muốn Nâng Cấp Gì Cứ Alo Mình. Cảm Ơn AE Đã Ủng Hộ!🔥].")
 end
 
 
@@ -409,7 +409,7 @@ end
 
 function F9()
 gg.copyText("0375574755")
-gg.alert("༒📲Đã Copy SĐT Admin📲༒\n\nHãy Vào Zalo Dán Vào Ô Tìm Kiếm Để Liên Hệ Với Admin.\n\nXin Cảm Ơn!🇻🇳")
+gg.alert("📲Đã Copy SĐT Admin📲\n\nHãy Vào Zalo Dán Vào Ô Tìm Kiếm Để Liên Hệ Với Admin.\n\nXin Cảm Ơn!🇻🇳")
 end
 
 
