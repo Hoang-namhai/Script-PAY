@@ -94,10 +94,10 @@ end
 -- ============================================
 function OnOff1()
     if H1 == on then
-        setHex(0x01ABDA14, "E0 7B 88 12 C0 97 A9 72 00 00 27 1E C0 03 5F D6")
+        setHex(0x01A639EC, "E0 7B 88 12 C0 97 A9 72 00 00 27 1E C0 03 5F D6")
         gg.toast('✅Bất Tử✅')
     else
-        reset(0x01ABDA14)
+        reset(0x01A639EC)
         gg.toast('❌Bất Tử❌')
     end
 end
@@ -109,7 +109,7 @@ function Main()
     local m = gg.choice({
         H1.." Bất Tử 😎",
         "[Exit]"
-    }, nil, "❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮Gᴀᴍᴇ: Dungeon Survival 2\n💭Vᴇʀꜱɪᴏɴ: 2.3.2.1 \n------------------------------------------------")
+    }, nil, "❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮Gᴀᴍᴇ: Dungeon Survival 2\n💭Vᴇʀꜱɪᴏɴ: 2.2.16.2 \n------------------------------------------------")
     
     if m == 1 then 
         H1 = (H1 == on) and off or on
