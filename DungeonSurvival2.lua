@@ -1,191 +1,135 @@
-local n, startAddress, endAddress = nil, 0, 0
-local function name(lib)
-	if n == lib then
-		return startAddress, endAddress
-	end
-	local ranges = gg.getRangesList(lib or 'libMyGame.so')
-	for i, v in ipairs(ranges) do
-		if v.state == "Xa" then
-			startAddress = v.start
-			endAddress = ranges[#ranges]['end']
-			break
-		end
-	end
-	return startAddress, endAddress
+local gg = gg
+
+-- ================== MENU ==================
+on = '[✔]'; off = '[✖]'
+H1 = off
+local L = "libMyGame.so"
+
+-- ============================================
+-- TÌM LIB
+-- ============================================
+local bases, index, status = {}, 0, 0
+local ranges = gg.getRangesList(L)
+if #ranges == 0 then status = 2 goto SPLIT end
+
+for _, r in ipairs(ranges) do
+    if r.state == "Xa" then
+        index = index + 1
+        bases[index] = r.start
+        status = 1
+    end
 end
 
-local function setHexMemory(libname, offset, hex)
-	name(libname)
-	local t, total = {}, 0
-	for h in string.gmatch(hex, "%S%S") do
-	    table.insert(t, {
-	        address = startAddress + offset + total,
-	        flags = gg.TYPE_BYTE,
-	        value = h .. "r"
-	    })
-	    total = total + 1
-	end
-	local res = gg.setValues(t)
-	if type(res) ~= 'string' then
-		return true
-	else
-		gg.alert(res)
-		return false
-	end
+::SPLIT::
+if status == 2 then
+    local found, sizes, count = false, {}, 0
+    ranges = gg.getRangesList()
+    for _, r in ipairs(ranges) do
+        if r.state == "Xa" and r.name:match("split_config") then found = true end
+    end
+    if not found then print("No split lib."); gg.setVisible(true); os.exit() end
+    for _, r in ipairs(ranges) do
+        if r.state == "Xa" then
+            count = count + 1
+            sizes[count] = r["end"] - r.start
+        end
+    end
+    if count > 0 then
+        local max = math.max(table.unpack(sizes))
+        for _, r in ipairs(ranges) do
+            if r.state == "Xa" and (r["end"] - r.start) == max then
+                index = index + 1
+                bases[index] = r.start
+                status = 1
+            end
+        end
+    end
 end
 
+if status ~= 1 then print("Lib not found."); gg.setVisible(true); os.exit() end
 
+-- ============================================
+-- BACKUP & PATCH
+-- ============================================
+local orig = {}
 
+function reset(off)
+    if orig[off] then
+        gg.setValues(orig[off])
+    else
+        gg.alert("ERR - Không có backup!")
+    end
+end
 
+function setHex(offset, hex)
+    local base = bases[index]
+    if not base then
+        gg.alert("❌ Không tìm thấy base!")
+        return false
+    end
+    
+    if not orig[offset] then
+        local backup, patch, total = {}, {}, 0
+        for h in string.gmatch(hex, "%S%S") do
+            local addr = base + offset + total
+            table.insert(backup, {address = addr, flags = gg.TYPE_BYTE})
+            table.insert(patch, {address = addr, flags = gg.TYPE_BYTE, value = h .. "r"})
+            total = total + 1
+        end
+        orig[offset] = gg.getValues(backup)
+        gg.setValues(patch)
+    else
+        local patch, total = {}, 0
+        for h in string.gmatch(hex, "%S%S") do
+            table.insert(patch, {address = base + offset + total, flags = gg.TYPE_BYTE, value = h .. "r"})
+            total = total + 1
+        end
+        gg.setValues(patch)
+    end
+    return true
+end
 
+-- ============================================
+-- HACK 1: BẤT TỬ
+-- ============================================
+function OnOff1()
+    if H1 == on then
+        setHex(0x01ABDA14, "E0 7B 88 12 C0 97 A9 72 00 00 27 1E C0 03 5F D6")
+        gg.toast('✅Bất Tử✅')
+    else
+        reset(0x01ABDA14)
+        gg.toast('❌Bất Tử❌')
+    end
+end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
--- MENU--
--- local isHide = false
+-- ============================================
+-- MAIN MENU
+-- ============================================
 function Main()
-HNHH = gg.choice({
-"➣ No CoolDown 💨",
-"➣ Auto Win 🎊",
-"➣ One Hit 💥",
-"[𝙴𝚇𝙸𝚃]"
-}, nil,"❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮G𝙰𝙼𝙴: 𝙳𝚄𝙽𝙶𝙴𝙾𝙽 𝚂𝚄𝚁𝚅𝙸𝚅𝙰𝙻 𝟸\n💭V𝙴𝚁𝚂𝙸𝙾𝙽: 2.2.12.1 \n------------------------------------------------")
-if HNHH==1 then F1() end
-if HNHH==2 then F2() end
-if HNHH==3 then F3() end
-if HNHH==4 then EXITALL() end
-XGCK = -1
+    local m = gg.choice({
+        H1.." Bất Tử 😎",
+        "[Exit]"
+    }, nil, "❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮Gᴀᴍᴇ: Dungeon Survival 2\n💭Vᴇʀꜱɪᴏɴ: 2.3.2.1 \n------------------------------------------------")
+    
+    if m == 1 then 
+        H1 = (H1 == on) and off or on
+        OnOff1()
+    elseif m == 2 then 
+        gg.toast('♥ᴍᴏᴅ ʙʏ ʜᴀ̉ɪ sᴄʀɪᴘᴛ♥')
+        gg.alert("❤️Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀")
+        print('☞♥Zᴀʟᴏ: 0375574755♥☜')
+        os.exit() 
+    end
 end
 
-function F1()
-local HNH = gg.alert('❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮G𝙰𝙼𝙴: 𝙳𝚄𝙽𝙶𝙴𝙾𝙽 𝚂𝚄𝚁𝚅𝙸𝚅𝙰𝙻 𝟸\n💭V𝙴𝚁𝚂𝙸𝙾𝙽: 2.2.12.1\n➣ No CoolDown 💨\n------------------------------------------------','[✅]','[❌]')
-if HNH == nil then return 
-else
-if HNH == 1 then CDOn() end
-if HNH == 2 then CDOff() end
-end
-::ni::
-end
-
-function CDOn()
-setHexMemory("libMyGame.so", 0x015da990, "00 00 80 D2 C0 03 5F D6")
-gg.toast('✅𝙰𝙲𝚃𝙸𝚅𝙰𝚃𝙴𝙳✅')
-end
-
-
-function CDOff()
-setHexMemory("libMyGame.so", 0x015da990, "FD 7B B8 A9 FD 03 00 91")
-gg.toast('✅𝙰𝙲𝚃𝙸𝚅𝙰𝚃𝙴𝙳✅')
-end
-
-
-
-
-function F2()
-local HNH = gg.alert('❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮G𝙰𝙼𝙴: 𝙳𝚄𝙽𝙶𝙴𝙾𝙽 𝚂𝚄𝚁𝚅𝙸𝚅𝙰𝙻 𝟸\n💭V𝙴𝚁𝚂𝙸𝙾𝙽: 2.2.12.1\n➣ Auto Win 🎊\nLưu ý:\nChức Năng Này Tới Lượt Mình Đánh Rồi Mới Bật Nhé\nWin Xong Hãy Tắt Chức Năng Này Đi Nha\nChức Năng Này Tính Win Nhưng Sẽ K Nhận Được EXP...\n------------------------------------------------','[𝙾𝙽 𝚆𝙸𝙽]','[𝙾𝙵𝙵 𝚆𝙸𝙽]')
-if HNH == nil then return 
-else
-if HNH == 1 then OnWin() end
-if HNH == 2 then OffWin() end
-end
-::ni::
-end
-
-
-function OnWin()
-setHexMemory("libMyGame.so", 0x01556b2c, "20 00 80 D2 C0 03 5F D6")
-gg.toast('✅𝙰𝙲𝚃𝙸𝚅𝙰𝚃𝙴𝙳✅')
-end
-
-
-
-function OffWin()
-setHexMemory("libMyGame.so", 0x01556b2c, "00 00 80 D2 C0 03 5F D6")
-gg.toast('✅𝙰𝙲𝚃𝙸𝚅𝙰𝚃𝙴𝙳✅')
-end
-
---------------------
-
-
-
-
-function F3()
-local HNH = gg.alert('❤Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀\n🎮G𝙰𝙼𝙴: 𝙳𝚄𝙽𝙶𝙴𝙾𝙽 𝚂𝚄𝚁𝚅𝙸𝚅𝙰𝙻 𝟸\n💭V𝙴𝚁𝚂𝙸𝙾𝙽: 2.2.12.1\n➣ One Hit 💥\n------------------------------------------------','[✅]','[❌]')
-if HNH == nil then return 
-else
-if HNH == 1 then A1() end
-if HNH == 2 then A2() end
-end
-::ni::
-end
-
-function A1()
-iTzMeCoder=gg.getRangesList('libMyGame.so')[1].start
-iTzMe=nil  iTzMe={}
-iTzMe[1]={}
-iTzMe[1].address=iTzMeCoder+0x0158dc04+0
-iTzMe[1].value='52800020h'
-iTzMe[1].flags=4
-iTzMe[2]={}
-iTzMe[2].address=iTzMeCoder+0x0158dc04+4
-iTzMe[2].value='72A00000h'
-iTzMe[2].flags=4
-iTzMe[3]={}
-iTzMe[3].address=iTzMeCoder+0x0158dc04+8
-iTzMe[3].value='D65F03C0h'
-iTzMe[3].flags=4
-gg.setValues(iTzMe)
-gg.toast('✅𝙰𝙲𝚃𝙸𝚅𝙰𝚃𝙴𝙳✅')
-end
-
-
-
-function A2()
-iTzMeCoder=gg.getRangesList('libMyGame.so')[1].start
-iTzMe=nil  iTzMe={}
-iTzMe[1]={}
-iTzMe[1].address=iTzMeCoder+0x0158dc04+0
-iTzMe[1].value='A9B77BFDh'
-iTzMe[1].flags=4
-iTzMe[2]={}
-iTzMe[2].address=iTzMeCoder+0x0158dc04+4
-iTzMe[2].value='910003FDh'
-iTzMe[2].flags=4
-iTzMe[3]={}
-iTzMe[3].address=iTzMeCoder+0x0158dc04+8
-iTzMe[3].value='A9025BF5h'
-iTzMe[3].flags=4
-gg.setValues(iTzMe)
-gg.toast('✅𝙰𝙲𝚃𝙸𝚅𝙰𝚃𝙴𝙳✅')
-end
-
-
-
-
-function EXITALL()
-gg.toast('♥ᴍᴏᴅ ʙʏ ʜᴀ̉ɪ sᴄʀɪᴘᴛ♥')
-gg.alert("❤️Yᴏᴜᴛᴜʙᴇ :: ʜᴀ̉ɪ sᴄʀɪᴘᴛ🍀")
-print('☞♥Zᴀʟᴏ: 0375574755♥☜')
-os.exit()
-end
+-- ============================================
+-- VÒNG LẶP CHÍNH
+-- ============================================
 while true do
-if gg.isVisible(true) then
-XGCK = 1
-gg.setVisible(false)
-end
-gg.clearResults()
-if XGCK == 1 then
-Main()
-end
+    if gg.isVisible(true) then
+        gg.setVisible(false)
+        Main()
+    end
+    gg.sleep(100)
+    gg.clearResults()
 end
